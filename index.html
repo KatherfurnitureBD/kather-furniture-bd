@@ -4,436 +4,698 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>কাঠের ফার্নিচার বিডি</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    :root {
+      --black:       #141414;
+      --black-mid:   #1c1c1c;
+      --black-light: #242424;
+      --black-card:  #1e1e1e;
+      --gold:        #f0c040;
+      --gold-light:  #ffd966;
+      --gold-dark:   #c49a10;
+      --gold-dim:    #a07c08;
+      --cream:       #fdf8ee;
+      --white:       #ffffff;
+      --text-muted:  #888880;
+      --border:      rgba(240,192,64,0.18);
     }
 
-    body{
-      font-family:'Hind Siliguri', sans-serif;
-      background:#f7f3ee;
-      color:#222;
-      line-height:1.6;
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      overflow-x: hidden;
     }
 
-    a{
-      text-decoration:none;
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+    /* ══════════════════════════════
+       HEADER
+    ══════════════════════════════ */
+    header {
+      background: var(--black);
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.7);
     }
 
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:auto;
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    header{
-      background:linear-gradient(to right,#4b2e1e,#6b3d22);
-      color:white;
-      padding:30px 0 60px;
-      border-bottom-left-radius:30px;
-      border-bottom-right-radius:30px;
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
     }
 
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
+    .logo-area img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      box-shadow: 0 0 14px rgba(240,192,64,0.35);
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:15px;
+    .logo-text .brand {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: block;
+      line-height: 1.2;
     }
 
-    .logo img{
-      width:80px;
-      height:80px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid #fff;
+    .logo-text .tagline {
+      font-size: 0.72rem;
+      color: var(--text-muted);
     }
 
-    .logo h1{
-      font-size:32px;
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .hero{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      align-items:center;
-      gap:40px;
-      margin-top:50px;
+    nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+      white-space: nowrap;
     }
 
-    .hero-text h2{
-      font-size:52px;
-      line-height:1.2;
-      margin-bottom:20px;
+    nav a:hover {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+      font-weight: 700;
     }
 
-    .hero-text p{
-      font-size:20px;
-      margin-bottom:30px;
-      color:#f1e7df;
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(240,192,64,0.10) 0%, transparent 70%),
+        linear-gradient(180deg, #1a1a1a 0%, var(--black) 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .btns{
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
     }
 
-    .btn{
-      padding:14px 28px;
-      border-radius:10px;
-      font-size:18px;
-      font-weight:700;
-      transition:0.3s;
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+      color: var(--black);
+      padding: 5px 20px;
+      border-radius: 30px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
-    .call{
-      background:#fff;
-      color:#4b2e1e;
+    .hero h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      line-height: 1.35;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .whatsapp{
-      background:#25D366;
-      color:white;
+    .hero p {
+      font-size: 1rem;
+      color: #b0a890;
+      margin-bottom: 32px;
+      line-height: 1.75;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .facebook{
-      background:#1877f2;
-      color:white;
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .btn:hover{
-      transform:translateY(-3px);
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--black);
+      padding: 13px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: all 0.3s;
+      box-shadow: 0 4px 18px rgba(240,192,64,0.35);
     }
 
-    .hero-image img{
-      width:100%;
-      border-radius:25px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(240,192,64,0.5);
     }
 
-    section{
-      padding:80px 0;
+    .btn-wa {
+      background: #25d366;
+      color: #fff;
+      padding: 13px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.25);
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
+    .btn-wa:hover {
+      transform: translateY(-3px);
+      background: #1fb958;
     }
 
-    .section-title h2{
-      font-size:42px;
-      color:#4b2e1e;
-      margin-bottom:10px;
+    /* ══════════════════════════════
+       SECTION TITLE
+    ══════════════════════════════ */
+    .section-head {
+      text-align: center;
+      padding: 50px 20px 24px;
     }
 
-    .section-title p{
-      color:#666;
-      font-size:18px;
+    .section-head h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
     }
 
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
-    .card{
-      background:white;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      transition:0.3s;
+    .gold-bar {
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 12px auto 0;
+      border-radius: 2px;
     }
 
-    .card:hover{
-      transform:translateY(-8px);
+    /* ══════════════════════════════
+       PRODUCTS
+    ══════════════════════════════ */
+    .products {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 16px 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 22px;
     }
 
-    .card img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
+    .card {
+      background: var(--black-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.35s ease;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
 
-    .card-content{
-      padding:20px;
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 40px rgba(240,192,64,0.15);
     }
 
-    .card-content h3{
-      font-size:28px;
-      color:#4b2e1e;
-      margin-bottom:10px;
+    .card-img {
+      width: 100%;
+      height: 255px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
     }
 
-    .price{
-      font-size:22px;
-      color:#d35400;
-      font-weight:700;
-      margin-bottom:15px;
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .order-btn{
-      display:inline-block;
-      background:#4b2e1e;
-      color:white;
-      padding:12px 22px;
-      border-radius:10px;
-      font-size:17px;
-      font-weight:700;
+    .card:hover .card-img img {
+      transform: scale(1.07);
     }
 
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+      color: var(--black);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
     }
 
-    .about img{
-      width:100%;
-      border-radius:20px;
+    .card-body {
+      padding: 18px 20px 20px;
     }
 
-    .about-text h2{
-      font-size:42px;
-      color:#4b2e1e;
-      margin-bottom:20px;
+    .card-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 6px;
     }
 
-    .about-text p{
-      font-size:19px;
-      color:#555;
-      margin-bottom:15px;
+    .card-body .desc {
+      font-size: 0.8rem;
+      color: #70685a;
+      line-height: 1.55;
+      margin-bottom: 16px;
     }
 
-    footer{
-      background:#2d1a12;
-      color:white;
-      padding:40px 20px;
-      text-align:center;
-      border-top-left-radius:30px;
-      border-top-right-radius:30px;
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    footer h3{
-      font-size:32px;
-      margin-bottom:15px;
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.1;
     }
 
-    footer p{
-      margin-bottom:10px;
-      font-size:18px;
+    .price small {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      display: block;
     }
 
-    .floating-whatsapp{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#25D366;
-      color:white;
-      width:60px;
-      height:60px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      border-radius:50%;
-      font-size:28px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-      z-index:1000;
+    .order-btn {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--black);
+      border: none;
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      white-space: nowrap;
     }
 
-    @media(max-width:768px){
+    .order-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 4px 14px rgba(240,192,64,0.4);
+    }
 
-      .hero,
-      .about{
-        grid-template-columns:1fr;
-      }
+    /* ══════════════════════════════
+       FEATURES
+    ══════════════════════════════ */
+    .features {
+      background: var(--black-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 20px;
+    }
 
-      .hero-text h2{
-        font-size:36px;
-      }
+    .features-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-      .section-title h2,
-      .about-text h2{
-        font-size:32px;
-      }
+    .features-inner h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
 
-      .logo h1{
-        font-size:24px;
-      }
+    .features-inner > p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 36px;
+    }
 
-      .btn{
-        width:100%;
-        text-align:center;
-      }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .feat {
+      background: var(--black-light);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px 16px;
+      transition: all 0.3s;
+    }
+
+    .feat:hover {
+      border-color: var(--gold);
+      background: rgba(240,192,64,0.06);
+      transform: translateY(-4px);
+    }
+
+    .feat-icon { font-size: 2rem; margin-bottom: 12px; }
+
+    .feat h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .feat p {
+      font-size: 0.77rem;
+      color: #706850;
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════
+       CONTACT
+    ══════════════════════════════ */
+    .contact {
+      padding: 56px 20px;
+      text-align: center;
+      background: var(--black);
+    }
+
+    .contact h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .contact > p {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+    }
+
+    .contact-grid {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .c-card {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 28px;
+      text-decoration: none;
+      transition: all 0.3s;
+      min-width: 170px;
+    }
+
+    .c-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(240,192,64,0.12);
+    }
+
+    .c-card .ci { font-size: 1.8rem; margin-bottom: 8px; }
+    .c-card .cl { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 3px; }
+    .c-card .cv { font-size: 0.95rem; font-weight: 700; color: var(--gold-light); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer {
+      background: #0c0c0c;
+      border-top: 2px solid var(--gold-dark);
+      color: #555;
+      text-align: center;
+      padding: 22px 20px;
+      font-size: 0.8rem;
+    }
+
+    footer strong { color: var(--gold); }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; }
+      nav { justify-content: center; }
+      .products { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .card-img { height: 175px; }
+      .hero { padding: 44px 16px 40px; }
+    }
+
+    @media (max-width: 380px) {
+      .products { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="container">
-
-    <div class="topbar">
-      <div class="logo">
-        <img src="1000044965.png" alt="Logo">
-        <h1>কাঠের ফার্নিচার বিডি</h1>
+  <div class="header-inner">
+    <a class="logo-area" href="#">
+      <img src="1000044965.png" alt="লোগো" />
+      <div class="logo-text">
+        <span class="brand">কাঠের ফার্নিচার বিডি</span>
+        <span class="tagline">১০০% সেগুন কাঠ · আভিজাত্যে গড়া</span>
       </div>
-    </div>
-
-    <div class="hero">
-
-      <div class="hero-text">
-        <h2>আপনার ঘরের জন্য আধুনিক কাঠের ফার্নিচার</h2>
-
-        <p>
-          খাট, আলমারি, ড্রেসিং টেবিল, ওয়ার্ডরোব,
-          সোফা, ডাইনিং টেবিল এবং সকল ধরনের কাঠের
-          ফার্নিচার সুন্দর ডিজাইনে তৈরি করা হয়।
-        </p>
-
-        <div class="btns">
-          <a class="btn call" href="tel:01707172345">📞 কল করুন</a>
-
-          <a class="btn whatsapp" href="https://wa.me/8801707172345">💬 WhatsApp</a>
-
-          <a class="btn facebook" target="_blank" href="https://www.facebook.com/share/14dqHs8q47m/">📘 Facebook Page</a>
-        </div>
-      </div>
-
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="Furniture">
-      </div>
-
-    </div>
+    </a>
+    <nav>
+      <a href="#products">পণ্য সমূহ</a>
+      <a href="#features">কেন আমরা</a>
+      <a href="#contact">যোগাযোগ</a>
+      <a href="https://www.facebook.com/share/1Bw2BBzPdr/" target="_blank">📘 Facebook</a>
+    </nav>
   </div>
 </header>
 
-<section>
-  <div class="container">
-
-    <div class="section-title">
-      <h2>আমাদের ফার্নিচার কালেকশন</h2>
-      <p>আপনার পছন্দের ডিজাইন এবং সেরা মানের কাঠের ফার্নিচার</p>
-    </div>
-
-    <div class="products">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>খাট</h3>
-          <div class="price">৳ ২৫,০০০ থেকে</div>
-          <a href="tel:01707172345" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>সোফা</h3>
-          <div class="price">৳ ১৮,০০০ থেকে</div>
-          <a href="tel:01707172345" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>ডাইনিং টেবিল</h3>
-          <div class="price">৳ ২০,০০০ থেকে</div>
-          <a href="tel:01707172345" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>আলমারি</h3>
-          <div class="price">৳ ৩০,০০০ থেকে</div>
-          <a href="tel:01707172345" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>ড্রেসিং টেবিল</h3>
-          <div class="price">৳ ১২,০০০ থেকে</div>
-          <a href="tel:01707172345" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
-        <div class="card-content">
-          <h3>ওয়ার্ডরোব</h3>
-          <div class="price">৳ ৩৫,০০০ থেকে</div>
-          <a href="tel:01707172345" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-
-    <div class="about">
-
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
-
-      <div class="about-text">
-        <h2>কেন আমাদের বেছে নিবেন?</h2>
-
-        <p>✔ উন্নত মানের কাঠ ব্যবহার করা হয়</p>
-        <p>✔ কাস্টম ডিজাইন তৈরি করা হয়</p>
-        <p>✔ সাশ্রয়ী মূল্যে ফার্নিচার</p>
-        <p>✔ সুন্দর এবং আধুনিক ডিজাইন</p>
-        <p>✔ বিশ্বস্ত সেবা এবং দ্রুত ডেলিভারি</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<footer>
-  <h3>কাঠের ফার্নিচার বিডি</h3>
-
-  <p>📞 যোগাযোগ: 01707172345</p>
-  <p>💬 WhatsApp: 01707172345</p>
-
-  <p>
-    📘 Facebook:
-    <a style="color:#4da3ff;" target="_blank" href="https://www.facebook.com/share/14dqHs8q47m/">
-      Page Visit করুন
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ ১০০% সেগুন কাঠ · হাতে তৈরি ✦</div>
+  <h1>আপনার মন মতো ডিজাইন দিয়ে বানিয়ে নিতে পারবেন</h1>
+  <p>দরজা, পাল্লা, খাট, আলমারি সহ সবকিছু — অর্ডার অনুযায়ী কাস্টম ডিজাইন করা হয়। বিশ্বমানের কারুকাজ, টেকসই কাঠ, সাশ্রয়ী মূল্য।</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-gold">🪑 পণ্য দেখুন</a>
+    <a href="https://wa.me/8801707172345" target="_blank" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
     </a>
-  </p>
+  </div>
+</section>
 
-  <p style="margin-top:20px; color:#ccc;">
-    © 2026 কাঠের ফার্নিচার বিডি | All Rights Reserved
-  </p>
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-head">
+    <h2>আমাদের পণ্য সমূহ</h2>
+    <p>সেরা মানের সেগুন কাঠে তৈরি — কাস্টম ডিজাইনে অর্ডার করুন</p>
+    <div class="gold-bar"></div>
+  </div>
+
+  <div class="products">
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair1.jpg.png" alt="সেগুন কাঠের খাট" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের খাট</h3>
+        <p class="desc">রাজকীয় কারুকাজে তৈরি, টেকসই ও আভিজাত্যপূর্ণ। কাস্টম সাইজে অর্ডার করুন।</p>
+        <div class="card-footer">
+          <div class="price">৳৫০,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=খাটের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair2.jpg.png" alt="সেগুন কাঠের শোকেস" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের শোকেস</h3>
+        <p class="desc">গ্লাস ও কাঠের অপূর্ব সমন্বয়ে তৈরি শোকেস, ঘরের সৌন্দর্য বাড়ায়।</p>
+        <div class="card-footer">
+          <div class="price">৳৫৫,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=শোকেসের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair3.jpg.png" alt="সেগুন কাঠের সোফা সেট" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের সোফা সেট</h3>
+        <p class="desc">৫ পিস সোফা সেট, কেন্দ্রীয় টেবিলসহ। বসার ঘরে আনুন রাজকীয় অনুভূতি।</p>
+        <div class="card-footer">
+          <div class="price">৳৫৫,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=সোফা সেটের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair4.jpg.png" alt="সেগুন কাঠের আলমারি" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের আলমারি</h3>
+        <p class="desc">প্রশস্ত ও মজবুত আলমারি, ফুলকারি ডিজাইনে তৈরি। দীর্ঘস্থায়ী ব্যবহারের জন্য।</p>
+        <div class="card-footer">
+          <div class="price">৳৪৫,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=আলমারির অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair5.jpg.png" alt="সেগুন কাঠের ওয়ার্ডরোব" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের ওয়ার্ডরোব</h3>
+        <p class="desc">ড্রয়ার ও কেবিনেট সহ আধুনিক ওয়ার্ডরোব। কাপড় গুছিয়ে রাখুন স্টাইলিশভাবে।</p>
+        <div class="card-footer">
+          <div class="price">৳৩০,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=ওয়ার্ডরোবের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair6.jpg.png" alt="সেগুন কাঠের দরজা পাল্লা" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের দরজা পাল্লা</h3>
+        <p class="desc">হাতে খোদাই করা ফুলকারি ডিজাইনের দরজা, ঘরের প্রবেশদ্বারকে করুন অনন্য।</p>
+        <div class="card-footer">
+          <div class="price">৳৫৫,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=দরজা পাল্লার অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="chair7.jpg.png" alt="সেগুন কাঠের ড্রেসিং টেবিল" loading="lazy" />
+        <div class="card-badge">১০০% সেগুন</div>
+      </div>
+      <div class="card-body">
+        <h3>সেগুন কাঠের ড্রেসিং টেবিল</h3>
+        <p class="desc">আয়না ও ড্রয়ার সহ আধুনিক ড্রেসিং টেবিল। ঘরের সাজসজ্জায় নতুন মাত্রা।</p>
+        <div class="card-footer">
+          <div class="price">৳৩০,০০০<small>থেকে শুরু</small></div>
+          <a href="https://wa.me/8801707172345?text=ড্রেসিং টেবিলের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features">
+  <div class="features-inner">
+    <h2>কেন আমাদের বেছে নেবেন?</h2>
+    <p>বছরের পর বছর ধরে বিশ্বস্ততার সাথে সেবা দিয়ে আসছি</p>
+    <div class="features-grid">
+      <div class="feat"><div class="feat-icon">🌳</div><h4>১০০% সেগুন কাঠ</h4><p>খাঁটি সেগুন কাঠ, কোনো মিশ্রণ নেই।</p></div>
+      <div class="feat"><div class="feat-icon">✋</div><h4>হাতে তৈরি</h4><p>দক্ষ কারিগরের হাতের কাজে তৈরি।</p></div>
+      <div class="feat"><div class="feat-icon">🎨</div><h4>কাস্টম ডিজাইন</h4><p>আপনার পছন্দের ডিজাইনে বানানো হয়।</p></div>
+      <div class="feat"><div class="feat-icon">🚚</div><h4>হোম ডেলিভারি</h4><p>সারাদেশে ডেলিভারির ব্যবস্থা আছে।</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>যোগাযোগ করুন</h2>
+  <p>অর্ডার দিতে বা বিস্তারিত জানতে এখনই যোগাযোগ করুন</p>
+  <div class="contact-grid">
+    <a href="tel:+8801707172345" class="c-card">
+      <div class="ci">📞</div>
+      <span class="cl">কল করুন</span>
+      <span class="cv">01707-172345</span>
+    </a>
+    <a href="https://wa.me/8801707172345" target="_blank" class="c-card">
+      <div class="ci">💬</div>
+      <span class="cl">WhatsApp</span>
+      <span class="cv">01707-172345</span>
+    </a>
+    <a href="https://www.facebook.com/share/1Bw2BBzPdr/" target="_blank" class="c-card">
+      <div class="ci">📘</div>
+      <span class="cl">Facebook পেজ</span>
+      <span class="cv">কাঠের ফার্নিচার বিডি</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© ২০২৫ <strong>কাঠের ফার্নিচার বিডি</strong> · সকল স্বত্ব সংরক্ষিত · ১০০% সেগুন কাঠ, আভিজাত্যে গড়া</p>
 </footer>
-
-<a class="floating-whatsapp" href="https://wa.me/8801707172345">
-  💬
-</a>
 
 </body>
 </html>
