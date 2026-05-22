@@ -1,712 +1,941 @@
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>কাঠের ফার্নিচার বিডি</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gold: #c8922a;
-      --gold-light: #e8b84b;
-      --gold-dark: #8b6014;
-      --brown-dark: #2c1a0e;
-      --brown-mid: #4a2c0f;
-      --brown-light: #6b3f1a;
-      --cream: #fdf6ec;
-      --cream-dark: #f5e8d0;
-      --white: #ffffff;
-      --text-dark: #1a0f05;
-      --text-mid: #4a3520;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Hind Siliguri', sans-serif;
-      background: var(--cream);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 50%, var(--brown-dark) 100%);
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      border-bottom: 3px solid var(--gold);
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-
-    .logo-area img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      object-fit: cover;
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-text .main-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1.2;
-      letter-spacing: 0.5px;
-    }
-
-    .logo-text .sub-title {
-      font-size: 0.75rem;
-      color: #c9a87a;
-      font-weight: 400;
-    }
-
-    nav {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    nav a {
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(200,146,42,0.3);
-      transition: all 0.3s;
-      white-space: nowrap;
-    }
-
-    nav a:hover {
-      background: var(--gold);
-      color: var(--brown-dark);
-      border-color: var(--gold);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, var(--brown-dark) 0%, #3d2010 40%, var(--brown-mid) 100%);
-      padding: 60px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(ellipse at center, rgba(200,146,42,0.08) 0%, transparent 60%);
-      animation: pulse 4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-      color: var(--cream);
-      padding: 6px 20px;
-      border-radius: 30px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 16px;
-      line-height: 1.3;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: #c9b08a;
-      margin-bottom: 30px;
-      line-height: 1.7;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-      color: var(--white);
-      padding: 13px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(200,146,42,0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(200,146,42,0.5);
-    }
-
-    .btn-whatsapp {
-      background: #25d366;
-      color: var(--white);
-      padding: 13px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(37,211,102,0.3);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      background: #20ba5a;
-    }
-
-    /* ===== DIVIDER ===== */
-    .divider {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-
-    .divider h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 8px;
-    }
-
-    .divider p {
-      color: var(--brown-light);
-      font-size: 0.95rem;
-    }
-
-    .gold-line {
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 12px auto 0;
-    }
-
-    /* ===== PRODUCTS GRID ===== */
-    .products {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 16px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .product-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(44,26,14,0.12);
-      transition: all 0.35s ease;
-      border: 1px solid rgba(200,146,42,0.15);
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(44,26,14,0.2);
-      border-color: var(--gold);
-    }
-
-    .product-img-wrap {
-      width: 100%;
-      height: 260px;
-      overflow: hidden;
-      background: var(--cream-dark);
-      position: relative;
-    }
-
-    .product-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .product-card:hover .product-img-wrap img {
-      transform: scale(1.06);
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 12px;
-    }
-
-    .product-info {
-      padding: 18px 20px 20px;
-    }
-
-    .product-info h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 6px;
-    }
-
-    .product-info .desc {
-      font-size: 0.82rem;
-      color: #7a6050;
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .price {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--gold-dark);
-    }
-
-    .price span {
-      font-size: 0.75rem;
-      color: #999;
-      font-weight: 400;
-      display: block;
-      line-height: 1;
-    }
-
-    .order-btn {
-      background: linear-gradient(135deg, var(--brown-mid), var(--brown-dark));
-      color: var(--gold-light);
-      border: none;
-      padding: 9px 18px;
-      border-radius: 20px;
-      font-family: 'Hind Siliguri', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .order-btn:hover {
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-      color: white;
-      transform: scale(1.05);
-    }
-
-    /* ===== FEATURES ===== */
-    .features {
-      background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
-      padding: 50px 20px;
-    }
-
-    .features-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .features h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 8px;
-    }
-
-    .features > .features-inner > p {
-      color: #c9b08a;
-      margin-bottom: 36px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-    }
-
-    .feature-item {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,146,42,0.25);
-      border-radius: 14px;
-      padding: 24px 16px;
-      transition: all 0.3s;
-    }
-
-    .feature-item:hover {
-      background: rgba(200,146,42,0.12);
-      border-color: var(--gold);
-      transform: translateY(-3px);
-    }
-
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .feature-item h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      margin-bottom: 6px;
-    }
-
-    .feature-item p {
-      font-size: 0.78rem;
-      color: #b09070;
-      line-height: 1.5;
-    }
-
-    /* ===== CONTACT ===== */
-    .contact {
-      background: var(--cream-dark);
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 8px;
-    }
-
-    .contact p {
-      color: var(--brown-light);
-      margin-bottom: 30px;
-    }
-
-    .contact-btns {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .contact-card {
-      background: var(--white);
-      border: 1px solid rgba(200,146,42,0.2);
-      border-radius: 16px;
-      padding: 20px 28px;
-      text-decoration: none;
-      transition: all 0.3s;
-      min-width: 180px;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(44,26,14,0.15);
-      border-color: var(--gold);
-    }
-
-    .contact-card .c-icon { font-size: 1.8rem; margin-bottom: 8px; }
-    .contact-card .c-label { font-size: 0.78rem; color: #999; display: block; }
-    .contact-card .c-value { font-size: 1rem; font-weight: 700; color: var(--brown-dark); }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--brown-dark);
-      color: #a08060;
-      text-align: center;
-      padding: 24px 20px;
-      font-size: 0.82rem;
-      border-top: 2px solid var(--gold-dark);
-    }
-
-    footer strong {
-      color: var(--gold-light);
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
-      .header-inner { flex-direction: column; gap: 12px; }
-      nav { justify-content: center; }
-      .products { grid-template-columns: 1fr 1fr; gap: 14px; }
-      .product-img-wrap { height: 180px; }
-      .hero { padding: 40px 16px; }
-    }
-
-    @media (max-width: 400px) {
-      .products { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>কাঠের ফার্নিচার BD</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700;900&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --beige:#F5ECD7;--beige2:#EDD9B0;--beige3:#E8CFA0;
+  --brown-dark:#3B1F0A;--brown:#6B3A1F;--brown-mid:#8B5130;
+  --brown-light:#C28A5A;--accent:#D4872A;--accent2:#E8A84A;
+  --white:#FFFDF7;--text:#2A1205;--text2:#6B3A1F;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans Bengali',sans-serif;background:var(--beige);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--beige2);}
+::-webkit-scrollbar-thumb{background:var(--brown-light);border-radius:3px;}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes marqueeAnim{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 4vw;
+  background:rgba(59,31,10,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:2px solid var(--accent);
+  transition:all .3s;
+}
+nav.scrolled{padding:.6rem 4vw;box-shadow:0 6px 30px rgba(0,0,0,.4);}
+
+/* LOGO */
+.logo-area{display:flex;align-items:center;gap:.8rem;text-decoration:none;position:relative;}
+.logo-img-wrap{
+  width:50px;height:50px;border-radius:50%;
+  border:2px solid var(--accent);overflow:hidden;
+  background:var(--beige2);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;position:relative;transition:border-color .2s;
+}
+.logo-img-wrap:hover{border-color:var(--accent2);}
+.logo-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.logo-default-icon{font-family:'Noto Serif Bengali',serif;font-size:1.4rem;font-weight:900;color:var(--brown-dark);}
+.logo-change-btn{
+  position:absolute;inset:0;background:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;border-radius:50%;
+  font-size:.55rem;color:#fff;text-align:center;line-height:1.3;font-weight:600;
+}
+.logo-img-wrap:hover .logo-change-btn{opacity:1;}
+#logoInput{display:none;}
+.brand-name{font-family:'Noto Serif Bengali',serif;font-size:1.15rem;font-weight:900;color:var(--beige);line-height:1.15;}
+.brand-name span{color:var(--accent2);}
+.brand-sub{font-size:.6rem;color:rgba(245,236,215,.5);letter-spacing:.12em;}
+
+.nav-links{display:flex;list-style:none;gap:1.6rem;}
+.nav-links a{color:rgba(245,236,215,.75);text-decoration:none;font-size:.85rem;transition:color .2s;padding:.3rem 0;border-bottom:2px solid transparent;}
+.nav-links a:hover{color:var(--accent2);border-bottom-color:var(--accent2);}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.nav-phone{
+  display:flex;align-items:center;gap:.4rem;
+  color:var(--accent2);font-size:.85rem;font-weight:600;text-decoration:none;
+  background:rgba(212,135,42,.12);padding:.4rem .9rem;border-radius:3px;
+  border:1px solid rgba(212,135,42,.3);transition:background .2s;
+}
+.nav-phone:hover{background:rgba(212,135,42,.22);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
+.ham span{display:block;width:24px;height:2px;background:var(--beige);border-radius:2px;transition:.3s;}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:rgba(59,31,10,.98);padding:1.2rem 4vw 1.5rem;
+  flex-direction:column;gap:.6rem;z-index:499;
+  border-bottom:2px solid var(--accent);
+  animation:fadeIn .2s ease;
+}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:var(--beige);text-decoration:none;font-size:.95rem;padding:.6rem 0;border-bottom:1px solid rgba(212,135,42,.15);}
+.mob-menu a:hover{color:var(--accent2);}
+.mob-phone{color:var(--accent2)!important;font-weight:600;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding:9rem 4vw 4rem;
+  background:
+    linear-gradient(150deg,rgba(59,31,10,.88) 0%,rgba(107,58,31,.55) 55%,rgba(242,204,138,.2) 100%),
+    url('1000047400.png') center/cover no-repeat;
+  display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:130px;
+  background:linear-gradient(to top,var(--beige),transparent);
+}
+.hero-inner{max-width:600px;animation:fadeUp .9s ease both;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(212,135,42,.18);border:1px solid rgba(212,135,42,.4);
+  color:var(--accent2);padding:.35rem 1rem;border-radius:50px;
+  font-size:.72rem;letter-spacing:.15em;margin-bottom:1.5rem;
+}
+.hero-badge::before{content:'🌿';}
+.hero h1{
+  font-family:'Noto Serif Bengali',serif;
+  font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;
+  color:#FFFDF7;line-height:1.15;margin-bottom:1rem;
+}
+.hero h1 em{font-style:normal;color:var(--accent2);}
+.hero-desc{color:rgba(255,253,247,.72);font-size:.98rem;line-height:1.9;max-width:44ch;margin-bottom:2rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-main{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:var(--brown-dark);padding:.85rem 2rem;border-radius:3px;
+  font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:1rem;
+  text-decoration:none;border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(212,135,42,.45);
+  transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(212,135,42,.55);}
+.btn-outline{
+  background:transparent;color:var(--beige);
+  padding:.85rem 2rem;border-radius:3px;
+  font-size:1rem;text-decoration:none;
+  border:1.5px solid rgba(245,236,215,.4);
+  transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
+.hero-stats{
+  display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;
+  animation:fadeUp .9s .3s ease both;opacity:0;animation-fill-mode:both;
+}
+.stat{color:var(--beige);}
+.stat-n{font-family:'Noto Serif Bengali',serif;font-size:2rem;font-weight:900;color:var(--accent2);display:block;line-height:1;}
+.stat-l{font-size:.72rem;opacity:.6;margin-top:.25rem;}
+/* hero product image right */
+.hero-img-side{
+  position:absolute;right:0;top:0;bottom:0;width:45%;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-img-side img{
+  width:100%;height:100%;object-fit:cover;
+  opacity:.35;
+  mix-blend-mode:luminosity;
+}
+
+/* ── MARQUEE STRIP ── */
+.strip{
+  background:var(--brown-dark);padding:.8rem 0;overflow:hidden;
+  border-top:1px solid rgba(212,135,42,.3);
+  border-bottom:1px solid rgba(212,135,42,.3);
+}
+.strip-inner{
+  display:flex;white-space:nowrap;
+  animation:marqueeAnim 22s linear infinite;
+}
+.strip-inner span{
+  font-family:'Noto Serif Bengali',serif;font-size:.82rem;
+  color:var(--accent);margin:0 2rem;letter-spacing:.05em;flex-shrink:0;
+}
+.strip-inner .dot{color:var(--accent2);font-size:1.1rem;margin:0 .5rem;}
+
+/* ── SECTION COMMON ── */
+.sec{padding:5.5rem 4vw;}
+.sec-alt{background:linear-gradient(160deg,var(--beige2) 0%,var(--beige) 100%);}
+.sec-dark{background:var(--brown-dark);}
+.sec-hd{margin-bottom:3rem;}
+.sec-tag{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+.sec-title{font-family:'Noto Serif Bengali',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;color:var(--brown-dark);line-height:1.2;}
+.sec-title.light{color:var(--beige);}
+.sec-title em{font-style:normal;color:var(--accent);}
+.divider{width:55px;height:3px;background:linear-gradient(to right,var(--accent),var(--accent2));border-radius:2px;margin:1rem 0;}
+.sec-sub{color:var(--text2);font-size:.92rem;line-height:1.85;max-width:50ch;}
+.sec-sub.light{color:rgba(245,236,215,.6);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  border-radius:4px;display:block;
+  box-shadow:16px 16px 0 var(--beige3),32px 32px 0 var(--brown-light);
+}
+.about-badge{
+  position:absolute;bottom:-1rem;right:-1rem;
+  background:var(--brown-dark);color:var(--accent2);
+  width:110px;height:110px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Noto Serif Bengali',serif;text-align:center;
+  border:3px solid var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.3);
+  animation:float 3s ease infinite;
+}
+.about-badge strong{font-size:1.7rem;font-weight:900;line-height:1;}
+.about-badge small{font-size:.58rem;opacity:.75;letter-spacing:.04em;}
+.features{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
+.feat{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:.9rem 1.1rem;background:var(--white);
+  border-left:3px solid var(--accent);border-radius:0 4px 4px 0;
+  box-shadow:0 2px 12px rgba(59,31,10,.06);
+  transition:transform .2s,box-shadow .2s;
+}
+.feat:hover{transform:translateX(6px);box-shadow:0 4px 20px rgba(59,31,10,.1);}
+.feat-ico{font-size:1.4rem;flex-shrink:0;margin-top:.05rem;}
+.feat h4{font-family:'Noto Serif Bengali',serif;font-size:.9rem;font-weight:700;color:var(--brown-dark);}
+.feat p{font-size:.78rem;color:var(--text2);margin-top:.2rem;line-height:1.6;}
+
+/* ── PRODUCTS ── */
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+  gap:1.4rem;margin-top:2.5rem;
+}
+.prod-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(212,135,42,.2);
+  border-radius:4px;overflow:hidden;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  cursor:pointer;
+}
+.prod-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 20px 44px rgba(0,0,0,.45);
+  border-color:rgba(212,135,42,.6);
+}
+.prod-img-wrap{overflow:hidden;position:relative;}
+.prod-img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+  filter:brightness(.88) saturate(.85);
+  transition:filter .35s,transform .4s;
+}
+.prod-card:hover .prod-img{filter:brightness(1) saturate(1.05);transform:scale(1.06);}
+.prod-badge{
+  position:absolute;top:.7rem;left:.7rem;
+  background:var(--accent);color:var(--brown-dark);
+  font-size:.6rem;font-weight:700;padding:.2rem .6rem;border-radius:2px;
+  letter-spacing:.05em;
+}
+.prod-body{padding:1.1rem 1.2rem;}
+.prod-tag{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);opacity:.8;}
+.prod-name{font-family:'Noto Serif Bengali',serif;font-size:1rem;font-weight:700;color:var(--beige);margin:.25rem 0;}
+.prod-price{font-family:'Noto Serif Bengali',serif;font-size:1.15rem;font-weight:900;color:var(--accent2);}
+.prod-foot{display:flex;gap:.6rem;padding:.8rem 1.2rem;border-top:1px solid rgba(212,135,42,.15);}
+.prod-btn{
+  flex:1;padding:.55rem;border-radius:3px;border:none;cursor:pointer;
+  font-family:'Noto Sans Bengali',sans-serif;font-size:.8rem;font-weight:600;
+  transition:background .2s,transform .15s;
+}
+.prod-btn-order{background:var(--accent);color:var(--brown-dark);}
+.prod-btn-order:hover{background:var(--accent2);transform:translateY(-1px);}
+.prod-btn-msg{background:rgba(255,255,255,.08);color:var(--beige);border:1px solid rgba(212,135,42,.3)!important;}
+.prod-btn-msg:hover{background:rgba(255,255,255,.14);}
+
+/* CUSTOM DESIGN SPECIAL CARD */
+.custom-card{
+  background:linear-gradient(135deg,rgba(212,135,42,.15),rgba(232,168,74,.08));
+  border:1.5px dashed rgba(212,135,42,.5);
+  border-radius:4px;padding:2.5rem 1.5rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;transition:border-color .2s,background .2s;cursor:pointer;
+  min-height:280px;
+}
+.custom-card:hover{border-color:var(--accent2);background:linear-gradient(135deg,rgba(212,135,42,.22),rgba(232,168,74,.12));}
+.custom-icon{font-size:3rem;margin-bottom:1rem;animation:float 3s ease infinite;}
+.custom-card h3{font-family:'Noto Serif Bengali',serif;font-size:1.15rem;font-weight:900;color:var(--beige);margin-bottom:.5rem;}
+.custom-card p{font-size:.82rem;color:rgba(245,236,215,.6);line-height:1.7;margin-bottom:1.2rem;}
+.custom-card .btn-main{font-size:.9rem;padding:.7rem 1.5rem;}
+
+/* ── LIGHTBOX ── */
+.lightbox{
+  position:fixed;inset:0;background:rgba(30,10,0,.93);z-index:900;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.7);object-fit:contain;}
+.lb-close{
+  position:absolute;top:1.2rem;right:1.5rem;
+  background:rgba(212,135,42,.2);border:1px solid rgba(212,135,42,.4);
+  color:var(--beige);width:44px;height:44px;border-radius:50%;
+  font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.lb-close:hover{background:rgba(212,135,42,.5);}
+.lb-caption{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  background:rgba(59,31,10,.9);color:var(--accent2);
+  padding:.6rem 2rem;border-radius:50px;
+  font-family:'Noto Serif Bengali',serif;font-size:1rem;font-weight:700;
+  border:1px solid rgba(212,135,42,.3);white-space:nowrap;
+}
+
+/* ── ORDER MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(30,10,0,.85);z-index:800;
+  display:flex;align-items:center;justify-content:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:var(--beige);border-radius:6px;width:100%;max-width:500px;
+  border:2px solid var(--accent);box-shadow:0 24px 60px rgba(0,0,0,.5);
+  overflow:hidden;animation:fadeUp .3s ease;
+}
+.modal-head{
+  background:var(--brown-dark);padding:1.2rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-head h3{font-family:'Noto Serif Bengali',serif;color:var(--beige);font-size:1.1rem;font-weight:700;}
+.modal-close{background:none;border:none;color:var(--beige);font-size:1.4rem;cursor:pointer;opacity:.7;transition:opacity .2s;}
+.modal-close:hover{opacity:1;}
+.modal-body{padding:1.5rem;}
+.modal-prod-info{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem;background:var(--brown-dark);border-radius:4px;margin-bottom:1.2rem;
+}
+.modal-prod-info .pi-name{font-family:'Noto Serif Bengali',serif;font-weight:700;color:var(--beige);font-size:1rem;}
+.modal-prod-info .pi-price{color:var(--accent2);font-weight:700;font-size:.95rem;}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:.82rem;color:var(--text2);margin-bottom:.35rem;font-weight:500;}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:.7rem .9rem;border-radius:3px;
+  border:1.5px solid var(--beige3);background:var(--white);
+  font-family:'Noto Sans Bengali',sans-serif;font-size:.9rem;color:var(--text);
+  outline:none;transition:border-color .2s;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);}
+.form-group textarea{resize:vertical;min-height:80px;}
+.modal-foot{padding:1rem 1.5rem 1.5rem;display:flex;gap:.8rem;}
+.btn-messenger{
+  flex:1;background:#0084FF;color:#fff;
+  padding:.8rem 1rem;border-radius:3px;border:none;cursor:pointer;
+  font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  transition:background .2s,transform .15s;
+}
+.btn-messenger:hover{background:#006ACA;transform:translateY(-2px);}
+.btn-phone-order{
+  flex:1;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:var(--brown-dark);padding:.8rem 1rem;border-radius:3px;border:none;cursor:pointer;
+  font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  transition:transform .15s;
+}
+.btn-phone-order:hover{transform:translateY(-2px);}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem;}
+.why-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,135,42,.18);border-radius:4px;
+  padding:1.8rem 1.4rem;text-align:center;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(0,0,0,.35);border-color:rgba(212,135,42,.5);}
+.why-ico{font-size:2.4rem;margin-bottom:.8rem;display:block;}
+.why-card h4{font-family:'Noto Serif Bengali',serif;color:var(--beige);font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+.why-card p{font-size:.78rem;color:rgba(245,236,215,.55);line-height:1.7;}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2rem;}
+.contact-info{display:flex;flex-direction:column;gap:1.2rem;}
+.ci-item{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.1rem 1.2rem;background:var(--white);
+  border-radius:4px;box-shadow:0 2px 12px rgba(59,31,10,.06);
+  border-left:3px solid var(--accent);
+}
+.ci-ico{font-size:1.5rem;flex-shrink:0;}
+.ci-text strong{display:block;font-family:'Noto Serif Bengali',serif;font-size:.9rem;color:var(--brown-dark);margin-bottom:.2rem;}
+.ci-text a,.ci-text span{color:var(--text2);font-size:.85rem;text-decoration:none;line-height:1.6;}
+.ci-text a:hover{color:var(--accent);}
+.contact-form{background:var(--white);border-radius:4px;padding:1.8rem;box-shadow:0 4px 24px rgba(59,31,10,.08);border-top:3px solid var(--accent);}
+.contact-form h3{font-family:'Noto Serif Bengali',serif;font-size:1.1rem;font-weight:700;color:var(--brown-dark);margin-bottom:1.2rem;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--brown-dark);padding:3rem 4vw 1.5rem;
+  border-top:2px solid var(--accent);
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;}
+.footer-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
+.footer-brand img{width:40px;height:40px;border-radius:50%;border:2px solid var(--accent);object-fit:cover;}
+.footer-brand-name{font-family:'Noto Serif Bengali',serif;font-size:1.1rem;font-weight:900;color:var(--beige);}
+.footer-brand-name span{color:var(--accent2);}
+.footer-desc{font-size:.82rem;color:rgba(245,236,215,.5);line-height:1.8;max-width:34ch;}
+.footer-col h4{font-family:'Noto Serif Bengali',serif;color:var(--beige);font-size:.95rem;font-weight:700;margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(212,135,42,.2);}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.footer-links a{color:rgba(245,236,215,.55);font-size:.82rem;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--accent2);}
+.footer-bottom{
+  border-top:1px solid rgba(212,135,42,.15);padding-top:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+}
+.footer-bottom p{font-size:.75rem;color:rgba(245,236,215,.4);}
+.social-links{display:flex;gap:.8rem;}
+.social-link{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(212,135,42,.12);border:1px solid rgba(212,135,42,.3);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent2);font-size:.85rem;text-decoration:none;
+  transition:background .2s,transform .2s;
+}
+.social-link:hover{background:rgba(212,135,42,.3);transform:translateY(-2px);}
+
+/* ── FLOATING BTNS ── */
+.float-btns{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:600;
+  display:flex;flex-direction:column;gap:.7rem;align-items:flex-end;
+}
+.fab{
+  width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s,box-shadow .2s;
+  text-decoration:none;
+}
+.fab:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 8px 24px rgba(0,0,0,.45);}
+.fab-msg{background:#0084FF;}
+.fab-call{background:linear-gradient(135deg,var(--accent),var(--accent2));}
+.fab svg{width:24px;height:24px;fill:#fff;}
+.fab-label{
+  background:var(--brown-dark);color:var(--beige);
+  font-size:.7rem;padding:.25rem .6rem;border-radius:3px;
+  position:absolute;right:62px;white-space:nowrap;
+  opacity:0;transition:opacity .2s;pointer-events:none;
+  border:1px solid rgba(212,135,42,.3);
+}
+.fab:hover .fab-label{opacity:1;}
+.fab{position:relative;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .ham{display:flex;}
+  .nav-phone{display:none;}
+  .hero-img-side{display:none;}
+  .hero{padding:8rem 4vw 4rem;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+  .about-img-wrap{margin-bottom:3rem;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:2.2rem;}
+  .hero-stats{gap:1.5rem;}
+  .stat-n{font-size:1.6rem;}
+  .prod-grid{grid-template-columns:1fr 1fr;}
+  .modal-foot{flex-direction:column;}
+}
+@media(max-width:420px){
+  .prod-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <a class="logo-area" href="#">
-      <img src="1000044965.png" alt="কাঠের ফার্নিচার বিডি লোগো" />
-      <div class="logo-text">
-        <span class="main-title">কাঠের ফার্নিচার বিডি</span>
-        <span class="sub-title">১০০% সেগুন কাঠ · আভিজাত্যে গড়া</span>
-      </div>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="logo-area" href="#home" onclick="return false;">
+    <div class="logo-img-wrap" onclick="document.getElementById('logoInput').click();event.stopPropagation();" title="লোগো পরিবর্তন করুন">
+      <img id="logoImg" src="1000047400.png" alt="Logo"/>
+      <div class="logo-change-btn">লোগো<br>পরিবর্তন</div>
+    </div>
+    <input type="file" id="logoInput" accept="image/*"/>
+    <div>
+      <div class="brand-name">কাঠের ফার্নিচার <span>BD</span></div>
+      <div class="brand-sub">সেগুন কাঠ · আভিজাত্যে গড়া</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">হোম</a></li>
+    <li><a href="#products">পণ্যসমূহ</a></li>
+    <li><a href="#about">আমাদের সম্পর্কে</a></li>
+    <li><a href="#custom">কাস্টম ডিজাইন</a></li>
+    <li><a href="#contact">যোগাযোগ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-phone" href="tel:01707172345">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      01707172345
     </a>
-    <nav>
-      <a href="#products">পণ্য সমূহ</a>
-      <a href="#features">কেন আমরা</a>
-      <a href="#contact">যোগাযোগ</a>
-      <a href="https://www.facebook.com/share/1Bw2BBzPdr/" target="_blank">📘 Facebook</a>
-    </nav>
+    <button class="ham" id="hamBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</header>
+</nav>
+
+<!-- MOBILE MENU -->
+<nav class="mob-menu" id="mobMenu">
+  <a href="#home" onclick="closeMob()">🏠 হোম</a>
+  <a href="#products" onclick="closeMob()">🪑 পণ্যসমূহ</a>
+  <a href="#about" onclick="closeMob()">ℹ️ আমাদের সম্পর্কে</a>
+  <a href="#custom" onclick="closeMob()">✏️ কাস্টম ডিজাইন</a>
+  <a href="#contact" onclick="closeMob()">📞 যোগাযোগ</a>
+  <a class="mob-phone" href="tel:01707172345">📱 01707172345</a>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">✦ ১০০% সেগুন কাঠ · হাতে তৈরি ✦</div>
-    <h1>আপনার মন মতো ডিজাইন দিয়ে বানিয়ে নিতে পারবেন</h1>
-    <p>দরজা, পাল্লা, খাট, আলমারি সহ সবকিছু — অর্ডার অনুযায়ী কাস্টম ডিজাইন করা হয়।<br>বিশ্বমানের কারুকাজ, টেকসই কাঠ, সাশ্রয়ী মূল্য।</p>
+<section class="hero" id="home">
+  <div class="hero-img-side">
+    <img src="1000047400.png" alt="furniture"/>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">১০০% সেগুন কাঠ · হাতে বোনা ফার্নিচার</div>
+    <h1>আভিজাত্যে গড়া<br><em>কাঠের ফার্নিচার</em></h1>
+    <p class="hero-desc">প্রতিটি আসবাব তৈরি হয় দক্ষ কারিগরের হাতে, সেরা সেগুন কাঠ দিয়ে। আপনার স্বপ্নের ঘর সাজান আমাদের বিশেষ কারুকাজ খচিত ফার্নিচার দিয়ে।</p>
     <div class="hero-btns">
-      <a href="#products" class="btn-primary">🪑 পণ্য দেখুন</a>
-      <a href="https://wa.me/8801707172345" target="_blank" class="btn-whatsapp">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+      <a href="#products" class="btn-main">🪑 পণ্য দেখুন</a>
+      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-outline">💬 মেসেজ করুন</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">৫০০+</span><span class="stat-l">সন্তুষ্ট গ্রাহক</span></div>
+      <div class="stat"><span class="stat-n">১৫+</span><span class="stat-l">বছরের অভিজ্ঞতা</span></div>
+      <div class="stat"><span class="stat-n">১০০%</span><span class="stat-l">সেগুন কাঠ গ্যারান্টি</span></div>
     </div>
   </div>
 </section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span>🌿 সেগুন কাঠ</span><span class="dot">✦</span>
+    <span>হাতে তৈরি</span><span class="dot">✦</span>
+    <span>কাস্টম ডিজাইন</span><span class="dot">✦</span>
+    <span>ডেলিভারি সুবিধা</span><span class="dot">✦</span>
+    <span>১০০% গ্যারান্টি</span><span class="dot">✦</span>
+    <span>সেরা মান</span><span class="dot">✦</span>
+    <span>🌿 সেগুন কাঠ</span><span class="dot">✦</span>
+    <span>হাতে তৈরি</span><span class="dot">✦</span>
+    <span>কাস্টম ডিজাইন</span><span class="dot">✦</span>
+    <span>ডেলিভারি সুবিধা</span><span class="dot">✦</span>
+    <span>১০০% গ্যারান্টি</span><span class="dot">✦</span>
+    <span>সেরা মান</span><span class="dot">✦</span>
+  </div>
+</div>
 
 <!-- PRODUCTS -->
-<section id="products">
-  <div class="divider">
-    <h2>আমাদের পণ্য সমূহ</h2>
-    <p>সেরা মানের সেগুন কাঠে তৈরি, কাস্টম ডিজাইনে অর্ডার করুন</p>
-    <div class="gold-line"></div>
+<section class="sec sec-dark" id="products">
+  <div class="sec-hd">
+    <p class="sec-tag">আমাদের পণ্যসমূহ</p>
+    <h2 class="sec-title light">বেছে নিন আপনার <em>পছন্দের আসবাব</em></h2>
+    <div class="divider"></div>
+    <p class="sec-sub light">প্রতিটি পণ্য সেগুন কাঠ দিয়ে তৈরি। ছবিতে ক্লিক করলে বড় করে দেখতে পাবেন।</p>
   </div>
 
-  <div class="products">
-
-    <!-- খাট -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair1.jpg.png" alt="সেগুন কাঠের খাট" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের খাট</h3>
-        <p class="desc">রাজকীয় কারুকাজে তৈরি, টেকসই ও আভিজাত্যপূর্ণ ডিজাইন। কাস্টম সাইজে অর্ডার করুন।</p>
-        <div class="product-footer">
-          <div class="price">৳৫০,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=খাটের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- শোকেস -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair2.jpg.png" alt="সেগুন কাঠের শোকেস" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের শোকেস</h3>
-        <p class="desc">গ্লাস ও কাঠের অপূর্ব সমন্বয়ে তৈরি শোকেস, ঘরের সৌন্দর্য বাড়ায়।</p>
-        <div class="product-footer">
-          <div class="price">৳৫৫,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=শোকেসের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- সোফা -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair3.jpg.png" alt="সেগুন কাঠের সোফা সেট" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের সোফা সেট</h3>
-        <p class="desc">৫ পিস সোফা সেট, কেন্দ্রীয় টেবিলসহ। বসার ঘরে আনুন রাজকীয় অনুভূতি।</p>
-        <div class="product-footer">
-          <div class="price">৳৫৫,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=সোফা সেটের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- আলমারি -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair4.jpg.png" alt="সেগুন কাঠের আলমারি" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের আলমারি</h3>
-        <p class="desc">প্রশস্ত ও মজবুত আলমারি, ফুলকারি ডিজাইনে তৈরি। দীর্ঘস্থায়ী ব্যবহারের জন্য।</p>
-        <div class="product-footer">
-          <div class="price">৳৪৫,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=আলমারির অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ওয়ার্ডরোব -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair5.jpg.png" alt="সেগুন কাঠের ওয়ার্ডরোব" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের ওয়ার্ডরোব</h3>
-        <p class="desc">ড্রয়ার ও কেবিনেট সহ আধুনিক ওয়ার্ডরোব। কাপড় গুছিয়ে রাখুন স্টাইলিশভাবে।</p>
-        <div class="product-footer">
-          <div class="price">৳৩০,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=ওয়ার্ডরোবের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- দরজা পাল্লা -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair6.jpg.png" alt="সেগুন কাঠের দরজা পাল্লা" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের দরজা পাল্লা</h3>
-        <p class="desc">হাতে খোদাই করা ফুলকারি ডিজাইনের দরজা, ঘরের প্রবেশদ্বারকে করুন অনন্য।</p>
-        <div class="product-footer">
-          <div class="price">৳৫৫,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=দরজা পাল্লার অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ড্রেসিং টেবিল -->
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="chair7.jpg.png" alt="সেগুন কাঠের ড্রেসিং টেবিল" loading="lazy" />
-        <div class="product-badge">১০০% সেগুন</div>
-      </div>
-      <div class="product-info">
-        <h3>সেগুন কাঠের ড্রেসিং টেবিল</h3>
-        <p class="desc">আয়না ও ড্রয়ার সহ আধুনিক ড্রেসিং টেবিল। ঘরের সাজসজ্জায় নতুন মাত্রা।</p>
-        <div class="product-footer">
-          <div class="price">৳৩০,০০০<span>থেকে শুরু</span></div>
-          <a href="https://wa.me/8801707172345?text=ড্রেসিং টেবিলের অর্ডার করতে চাই" target="_blank" class="order-btn">অর্ডার করুন</a>
-        </div>
-      </div>
-    </div>
-
+  <div class="prod-grid" id="prodGrid">
+    <!-- Cards injected by JS -->
   </div>
 </section>
 
-<!-- FEATURES -->
-<section id="features" class="features">
-  <div class="features-inner">
-    <h2>কেন আমাদের বেছে নেবেন?</h2>
-    <p>বছরের পর বছর ধরে বিশ্বস্ততার সাথে সেবা দিয়ে আসছি</p>
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">🌳</div>
-        <h4>১০০% সেগুন কাঠ</h4>
-        <p>খাঁটি সেগুন কাঠ ব্যবহার করা হয়, কোনো মিশ্রণ নেই।</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">✋</div>
-        <h4>হাতে তৈরি</h4>
-        <p>দক্ষ কারিগরের হাতের কাজে তৈরি প্রতিটি ফার্নিচার।</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🎨</div>
-        <h4>কাস্টম ডিজাইন</h4>
-        <p>আপনার পছন্দের ডিজাইনে তৈরি করে দেওয়া হয়।</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🚚</div>
-        <h4>হোম ডেলিভারি</h4>
-        <p>সারাদেশে ডেলিভারির ব্যবস্থা রয়েছে।</p>
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img class="about-img" src="1000047400.png" alt="কাঠের ফার্নিচার"/>
+      <div class="about-badge">
+        <strong>১৫+</strong>
+        <small>বছরের অভিজ্ঞতা</small>
       </div>
     </div>
+    <div>
+      <p class="sec-tag">আমাদের সম্পর্কে</p>
+      <h2 class="sec-title">কেন আমরা <em>আলাদা?</em></h2>
+      <div class="divider"></div>
+      <p class="sec-sub">আমরা বিশ্বাস করি, একটি সুন্দর ঘর মানুষের জীবনকে সুন্দর করে তোলে। তাই আমাদের প্রতিটি আসবাব তৈরিতে থাকে অসীম যত্ন, দক্ষতা এবং ভালোবাসা।</p>
+      <div class="features">
+        <div class="feat"><span class="feat-ico">🌿</span>
+          <div><h4>১০০% সেগুন কাঠ</h4><p>বাজারের সেরা সেগুন কাঠ ব্যবহার করা হয়। প্রতিটি কাঠ যত্নসহকারে বাছাই করা।</p></div>
+        </div>
+        <div class="feat"><span class="feat-ico">🔨</span>
+          <div><h4>দক্ষ কারিগর</h4><p>১৫+ বছরের অভিজ্ঞ কারিগরদের হাতে তৈরি প্রতিটি আসবাব।</p></div>
+        </div>
+        <div class="feat"><span class="feat-ico">✏️</span>
+          <div><h4>কাস্টম ডিজাইন</h4><p>আপনার পছন্দের ডিজাইন অনুযায়ী আসবাব তৈরি করে দেওয়া হয়।</p></div>
+        </div>
+        <div class="feat"><span class="feat-ico">🚚</span>
+          <div><h4>ডেলিভারি সুবিধা</h4><p>সারা বাংলাদেশে ডেলিভারির ব্যবস্থা আছে। নিরাপদে পৌঁছে দেওয়ার গ্যারান্টি।</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM DESIGN -->
+<section class="sec sec-alt" id="custom">
+  <div class="sec-hd" style="text-align:center;">
+    <p class="sec-tag">বিশেষ অপশন</p>
+    <h2 class="sec-title" style="text-align:center;">যেকোনো ডিজাইনে <em>বানিয়ে নিন</em></h2>
+    <div class="divider" style="margin:1rem auto;"></div>
+    <p class="sec-sub" style="margin:0 auto;text-align:center;">আপনার মনমতো ডিজাইন দিয়ে যেকোনো আসবাব তৈরি করে নিতে পারবেন।</p>
+  </div>
+  <div style="max-width:600px;margin:2.5rem auto 0;background:var(--white);border-radius:6px;padding:2.5rem;border-top:4px solid var(--accent);box-shadow:0 8px 32px rgba(59,31,10,.1);text-align:center;">
+    <div style="font-size:3.5rem;margin-bottom:1rem;">✏️</div>
+    <h3 style="font-family:'Noto Serif Bengali',serif;font-size:1.3rem;font-weight:900;color:var(--brown-dark);margin-bottom:.8rem;">আপনার স্বপ্নের ডিজাইন</h3>
+    <p style="color:var(--text2);font-size:.9rem;line-height:1.85;margin-bottom:1.5rem;">
+      আপনি যে ডিজাইনের আসবাব চান, তার ছবি বা বিবরণ দিন। আমাদের দক্ষ কারিগররা সেই অনুযায়ী তৈরি করে দেবেন।<br>
+      <strong style="color:var(--accent);">মূল্য নির্ধারিত হবে ডিজাইন ও কাঠ অনুযায়ী।</strong>
+    </p>
+    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-main">💬 মেসেঞ্জারে আলোচনা করুন</a>
+      <a href="tel:01707172345" class="btn-outline" style="color:var(--brown-mid);border-color:var(--brown-light);">📞 ফোন করুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec sec-dark">
+  <div class="sec-hd" style="text-align:center;">
+    <p class="sec-tag">আমাদের সুবিধা</p>
+    <h2 class="sec-title light" style="text-align:center;">কেন আমাদের <em>বেছে নেবেন?</em></h2>
+    <div class="divider" style="margin:1rem auto;"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><span class="why-ico">🌿</span><h4>সেগুন কাঠের গ্যারান্টি</h4><p>প্রতিটি পণ্যে ব্যবহার করা হয় খাঁটি সেগুন কাঠ।</p></div>
+    <div class="why-card"><span class="why-ico">💰</span><h4>সাশ্রয়ী মূল্য</h4><p>কারখানা থেকে সরাসরি বিক্রয়, তাই দামে সাশ্রয়।</p></div>
+    <div class="why-card"><span class="why-ico">⚡</span><h4>দ্রুত ডেলিভারি</h4><p>সারাদেশে দ্রুত ও নিরাপদ ডেলিভারি নিশ্চিত।</p></div>
+    <div class="why-card"><span class="why-ico">🔧</span><h4>ওয়ারেন্টি সুবিধা</h4><p>প্রতিটি পণ্যে রয়েছে মানের গ্যারান্টি ও সার্ভিস।</p></div>
+    <div class="why-card"><span class="why-ico">✏️</span><h4>কাস্টম অর্ডার</h4><p>আপনার ইচ্ছামতো সাইজ ও ডিজাইনে তৈরি সম্ভব।</p></div>
+    <div class="why-card"><span class="why-ico">💬</span><h4>সহজ যোগাযোগ</h4><p>ফেসবুক মেসেঞ্জার বা ফোনে সহজেই যোগাযোগ করুন।</p></div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>যোগাযোগ করুন</h2>
-  <p>অর্ডার দিতে বা বিস্তারিত জানতে এখনই যোগাযোগ করুন</p>
-  <div class="contact-btns">
-    <a href="tel:+8801707172345" class="contact-card">
-      <div class="c-icon">📞</div>
-      <span class="c-label">কল করুন</span>
-      <span class="c-value">01707-172345</span>
-    </a>
-    <a href="https://wa.me/8801707172345" target="_blank" class="contact-card">
-      <div class="c-icon">💬</div>
-      <span class="c-label">WhatsApp</span>
-      <span class="c-value">01707-172345</span>
-    </a>
-    <a href="https://www.facebook.com/share/1Bw2BBzPdr/" target="_blank" class="contact-card">
-      <div class="c-icon">📘</div>
-      <span class="c-label">Facebook পেজ</span>
-      <span class="c-value">কাঠের ফার্নিচার বিডি</span>
-    </a>
+<section class="sec" id="contact">
+  <div class="sec-hd">
+    <p class="sec-tag">যোগাযোগ করুন</p>
+    <h2 class="sec-title">আমাদের সাথে <em>কথা বলুন</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="ci-item">
+        <span class="ci-ico">📱</span>
+        <div class="ci-text"><strong>ফোন / WhatsApp</strong><a href="tel:01707172345">01707172345</a></div>
+      </div>
+      <div class="ci-item">
+        <span class="ci-ico">💬</span>
+        <div class="ci-text"><strong>Facebook Messenger</strong><a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank">আমাদের Facebook পেজ</a></div>
+      </div>
+      <div class="ci-item">
+        <span class="ci-ico">🕐</span>
+        <div class="ci-text"><strong>কাজের সময়</strong><span>সকাল ৯টা — রাত ৯টা (প্রতিদিন)</span></div>
+      </div>
+      <div class="ci-item">
+        <span class="ci-ico">🚚</span>
+        <div class="ci-text"><strong>ডেলিভারি এলাকা</strong><span>সারা বাংলাদেশ</span></div>
+      </div>
+      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-main" style="margin-top:.5rem;justify-content:center;">
+        <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook-এ মেসেজ করুন
+      </a>
+    </div>
+    <div class="contact-form">
+      <h3>📩 বার্তা পাঠান</h3>
+      <div class="form-group">
+        <label>আপনার নাম</label>
+        <input type="text" placeholder="আপনার পুরো নাম লিখুন"/>
+      </div>
+      <div class="form-group">
+        <label>ফোন নম্বর</label>
+        <input type="tel" placeholder="01XXXXXXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>কোন পণ্যটি চাই?</label>
+        <select>
+          <option value="">পণ্য বেছে নিন</option>
+          <option>ড্রেসিং টেবিল — ৳৩০,০০০</option>
+          <option>খাট — ৳৫৫,০০০</option>
+          <option>শোকেস — ৳৫০,০০০</option>
+          <option>আলমারি — ৳৪৫,০০০</option>
+          <option>ওয়ার্ডরব — ৳৩৫,০০০</option>
+          <option>সোফাসেট — ৳৫৫,০০০</option>
+          <option>দরজার পাল্লা — ৳৩০,০০০</option>
+          <option>কাস্টম ডিজাইন</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>বিস্তারিত (ঐচ্ছিক)</label>
+        <textarea placeholder="কোনো বিশেষ চাহিদা থাকলে লিখুন..."></textarea>
+      </div>
+      <button class="btn-messenger" onclick="sendToMessenger()">
+        <svg style="width:18px;height:18px;fill:#fff" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.193 14.963l-3.056-3.26-5.963 3.26L10.733 8l3.13 3.26L19.752 8l-6.559 6.963z"/></svg>
+        Messenger-এ পাঠান
+      </button>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© ২০২৫ <strong>কাঠের ফার্নিচার বিডি</strong> · সকল স্বত্ব সংরক্ষিত · ১০০% সেগুন কাঠ, আভিজাত্যে গড়া</p>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img id="footerLogo" src="1000047400.png" alt="logo"/>
+        <div class="footer-brand-name">কাঠের ফার্নিচার <span>BD</span></div>
+      </div>
+      <p class="footer-desc">সেগুন কাঠের আভিজাত্যে তৈরি প্রতিটি আসবাব। আমাদের লক্ষ্য আপনার ঘরকে স্বপ্নের মতো সুন্দর করে তোলা।</p>
+    </div>
+    <div class="footer-col">
+      <h4>দ্রুত লিংক</h4>
+      <ul class="footer-links">
+        <li><a href="#home">হোম</a></li>
+        <li><a href="#products">পণ্যসমূহ</a></li>
+        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+        <li><a href="#custom">কাস্টম ডিজাইন</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>যোগাযোগ</h4>
+      <ul class="footer-links">
+        <li><a href="tel:01707172345">📱 01707172345</a></li>
+        <li><a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank">💬 Facebook Page</a></li>
+        <li><a href="#">🕐 সকাল ৯টা — রাত ৯টা</a></li>
+        <li><a href="#">🚚 সারা বাংলাদেশ ডেলিভারি</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© ২০২৪ কাঠের ফার্নিচার BD · সর্বস্বত্ব সংরক্ষিত</p>
+    <div class="social-links">
+      <a class="social-link" href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" title="Facebook">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a class="social-link" href="tel:01707172345" title="Phone">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </a>
+    </div>
+  </div>
 </footer>
 
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a class="fab fab-msg" href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" title="Messenger">
+    <div class="fab-label">মেসেজ করুন</div>
+    <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.193 14.963l-3.056-3.26-5.963 3.26L10.733 8l3.13 3.26L19.752 8l-6.559 6.963z"/></svg>
+  </a>
+  <a class="fab fab-call" href="tel:01707172345" title="Call">
+    <div class="fab-label">ফোন করুন</div>
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  </a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLB(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img class="lb-img" id="lbImg" src="" alt=""/>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>🛒 অর্ডার করুন</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-prod-info">
+        <div>
+          <div class="pi-name" id="modalProd">পণ্যের নাম</div>
+          <div class="pi-price" id="modalPrice">মূল্য</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>আপনার নাম *</label>
+        <input type="text" id="ordName" placeholder="পুরো নাম লিখুন"/>
+      </div>
+      <div class="form-group">
+        <label>ফোন নম্বর *</label>
+        <input type="tel" id="ordPhone" placeholder="01XXXXXXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>ঠিকানা</label>
+        <input type="text" id="ordAddr" placeholder="জেলা / উপজেলা / বিস্তারিত"/>
+      </div>
+      <div class="form-group">
+        <label>বিশেষ চাহিদা (ঐচ্ছিক)</label>
+        <textarea id="ordNote" placeholder="রঙ, সাইজ বা অন্য কোনো তথ্য..."></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-messenger" onclick="sendOrderMessenger()">
+        <svg style="width:18px;height:18px;fill:#fff" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.193 14.963l-3.056-3.26-5.963 3.26L10.733 8l3.13 3.26L19.752 8l-6.559 6.963z"/></svg>
+        Messenger অর্ডার
+      </button>
+      <a class="btn-phone-order" href="tel:01707172345">
+        📞 ফোনে অর্ডার
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── PRODUCT DATA ──
+const products = [
+  {id:1, img:'chair1.jpg', name:'ড্রেসিং টেবিল', price:'৳৩০,০০০', tag:'বেডরুম'},
+  {id:2, img:'chair2.jpg', name:'খাট',            price:'৳৫৫,০০০', tag:'বেডরুম'},
+  {id:3, img:'chair3.jpg', name:'শোকেস',          price:'৳৫০,০০০', tag:'ড্রয়িং রুম'},
+  {id:4, img:'chair4.jpg', name:'আলমারি',         price:'৳৪৫,০০০', tag:'বেডরুম'},
+  {id:5, img:'chair5.jpg', name:'ওয়ার্ডরব',      price:'৳৩৫,০০০', tag:'বেডরুম'},
+  {id:6, img:'chair6.jpg', name:'সোফাসেট',        price:'৳৫৫,০০০', tag:'ড্রয়িং রুম'},
+  {id:7, img:'chair7.jpg', name:'দরজার পাল্লা',  price:'৳৩০,০০০', tag:'দরজা'},
+  {id:8, img:'chair8.jpg', name:'যেকোনো ডিজাইন', price:'মূল্য আলোচনাসাপেক্ষ', tag:'কাস্টম'},
+];
+
+// BUILD PRODUCT GRID
+const grid = document.getElementById('prodGrid');
+products.forEach(p => {
+  const isCustom = p.id === 8;
+  const card = document.createElement('div');
+  if(isCustom){
+    card.className='custom-card';
+    card.innerHTML=`
+      <div class="custom-icon">✏️</div>
+      <h3>${p.name}</h3>
+      <p>আপনার পছন্দের ডিজাইন দিয়ে যেকোনো আসবাব তৈরি করে নিতে পারবেন। মূল্য নির্ধারিত হবে ডিজাইন অনুযায়ী।</p>
+      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-main">💬 ডিজাইন দিন</a>
+    `;
+  } else {
+    card.className='prod-card';
+    card.innerHTML=`
+      <div class="prod-img-wrap">
+        <img class="prod-img" src="${p.img}" alt="${p.name}"
+          onerror="this.src='1000047400.png'"
+          onclick="openLightbox('${p.img}','${p.name} — ${p.price}')"/>
+        <span class="prod-badge">${p.tag}</span>
+      </div>
+      <div class="prod-body">
+        <div class="prod-tag">সেগুন কাঠ</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-price">${p.price}</div>
+      </div>
+      <div class="prod-foot">
+        <button class="prod-btn prod-btn-order" onclick="openModal('${p.name}','${p.price}')">🛒 অর্ডার করুন</button>
+        <button class="prod-btn prod-btn-msg" onclick="msgProduct('${p.name}','${p.price}')">💬 জিজ্ঞেস করুন</button>
+      </div>
+    `;
+  }
+  grid.appendChild(card);
+});
+
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',scrollY>60);
+});
+
+// ── HAMBURGER ──
+const hamBtn=document.getElementById('hamBtn');
+const mobMenu=document.getElementById('mobMenu');
+hamBtn.addEventListener('click',()=>{
+  hamBtn.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+});
+function closeMob(){hamBtn.classList.remove('open');mobMenu.classList.remove('open');}
+
+// ── LOGO UPLOAD ──
+document.getElementById('logoInput').addEventListener('change',function(){
+  if(this.files&&this.files[0]){
+    const url=URL.createObjectURL(this.files[0]);
+    document.getElementById('logoImg').src=url;
+    document.getElementById('footerLogo').src=url;
+  }
+});
+
+// ── LIGHTBOX ──
+function openLightbox(src,caption){
+  document.getElementById('lbImg').src=src;
+  document.getElementById('lbCaption').textContent=caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeLB(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
+
+// ── ORDER MODAL ──
+let curProd='',curPrice='';
+function openModal(name,price){
+  curProd=name; curPrice=price;
+  document.getElementById('modalProd').textContent=name;
+  document.getElementById('modalPrice').textContent=price;
+  document.getElementById('orderModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('orderModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('orderModal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+
+// ── SEND ORDER TO MESSENGER ──
+function sendOrderMessenger(){
+  const name=document.getElementById('ordName').value.trim();
+  const phone=document.getElementById('ordPhone').value.trim();
+  const addr=document.getElementById('ordAddr').value.trim();
+  const note=document.getElementById('ordNote').value.trim();
+  if(!name||!phone){alert('নাম এবং ফোন নম্বর দিন।');return;}
+  const msg=`🛒 নতুন অর্ডার!\n\nপণ্য: ${curProd}\nমূল্য: ${curPrice}\nনাম: ${name}\nফোন: ${phone}${addr?'\nঠিকানা: '+addr:''}${note?'\nবিশেষ চাহিদা: '+note:''}`;
+  const url=`https://m.me/share/18Z1pwyez1/?text=${encodeURIComponent(msg)}`;
+  window.open('https://www.facebook.com/share/18Z1pwyez1/','_blank');
+  closeModal();
+}
+
+function msgProduct(name,price){
+  const msg=`আমি "${name}" (${price}) সম্পর্কে জানতে চাই।`;
+  window.open('https://www.facebook.com/share/18Z1pwyez1/','_blank');
+}
+
+function sendToMessenger(){
+  const name=document.querySelector('.contact-form input[type=text]').value;
+  const phone=document.querySelector('.contact-form input[type=tel]').value;
+  const prod=document.querySelector('.contact-form select').value;
+  const note=document.querySelector('.contact-form textarea').value;
+  window.open('https://www.facebook.com/share/18Z1pwyez1/','_blank');
+}
+
+// ── SMOOTH SCROLL FOR NAV LINKS ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
 </body>
 </html>
+HTMLEOF
+echo "Done"
