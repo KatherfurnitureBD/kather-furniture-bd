@@ -429,7 +429,7 @@ footer{
 <nav id="navbar">
   <a class="logo-area" href="#home" onclick="return false;">
     <div class="logo-img-wrap" onclick="document.getElementById('logoInput').click();event.stopPropagation();" title="লোগো পরিবর্তন করুন">
-      <img id="logoImg" src="1000044965.png" alt="Logo" onerror="this.style.display='none'"/>
+      <img id="logoImg" src="logo.png" alt="Logo" onerror="this.style.display='none'"/>
       <div class="logo-change-btn">লোগো<br>পরিবর্তন</div>
     </div>
     <input type="file" id="logoInput" accept="image/*"/>
@@ -520,7 +520,7 @@ footer{
 <section class="sec" id="about">
   <div class="about-grid">
     <div class="about-img-wrap">
-      <img class="about-img" src="chair1.jpg.png" alt="কাঠের ফার্নিচার" onerror="this.src='1000044965.png'"/>
+      <img class="about-img" src="chair1.jpg.png" alt="কাঠের ফার্নিচার" onerror="this.src='logo.png'"/>
       <div class="about-badge">
         <strong>১৫+</strong>
         <small>বছরের অভিজ্ঞতা</small>
@@ -659,7 +659,7 @@ footer{
   <div class="footer-grid">
     <div>
       <div class="footer-brand">
-        <img id="footerLogo" src="1000044965.png" alt="logo" onerror="this.style.display='none'"/>
+        <img id="footerLogo" src="logo.png" alt="logo" onerror="this.style.display='none'"/>
         <div class="footer-brand-name">কাঠের ফার্নিচার <span>BD</span></div>
       </div>
       <p class="footer-desc">সেগুন কাঠের আভিজাত্যে তৈরি প্রতিটি আসবাব। আমাদের লক্ষ্য আপনার ঘরকে স্বপ্নের মতো সুন্দর করে তোলা।</p>
@@ -789,7 +789,7 @@ products.forEach(p => {
     card.innerHTML=`
       <div class="prod-img-wrap">
         <img class="prod-img" src="${p.img}" alt="${p.name}"
-          onerror="this.src='1000044965.png'"
+          onerror="this.src='logo.png'"
           onclick="openLightbox('${p.img}','${p.name} — ${p.price}')"/>
         <span class="prod-badge">${p.tag}</span>
       </div>
