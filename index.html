@@ -7,7 +7,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#fff;color:#222}
-/* HEADER */
 .topbar{background:#c8860a;color:#fff;text-align:center;padding:8px;font-size:13px}
 .topbar a{color:#fff;text-decoration:none;font-weight:bold}
 header{background:#1a0a00;position:sticky;top:0;z-index:999;padding:0 16px}
@@ -23,12 +22,10 @@ header{background:#1a0a00;position:sticky;top:0;z-index:999;padding:0 16px}
 .msgbtn{background:#c8860a;color:#fff;border:none;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:bold;white-space:nowrap}
 .msgbtn:hover{background:#e8a020}
 .menubtn{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer}
-/* SEARCH */
 .searchbar{background:#2a1200;padding:10px 16px;display:flex;justify-content:center}
 .sinput{display:flex;max-width:580px;width:100%;border-radius:30px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .sinput input{flex:1;padding:11px 18px;border:none;outline:none;font-size:15px;font-family:Arial,sans-serif}
 .sinput button{background:#c8860a;border:none;color:#fff;padding:0 20px;font-size:18px;cursor:pointer}
-/* HERO */
 .hero{background:linear-gradient(135deg,#1a0a00,#3d1c00);padding:60px 20px;text-align:center}
 .herobadge{display:inline-block;background:#c8860a;color:#fff;padding:5px 16px;border-radius:20px;font-size:12px;margin-bottom:16px;font-weight:bold}
 .hero h2{color:#fff;font-size:clamp(24px,5vw,48px);margin-bottom:12px;line-height:1.3}
@@ -39,26 +36,22 @@ header{background:#1a0a00;position:sticky;top:0;z-index:999;padding:0 16px}
 .btn1:hover{background:#e8a020}
 .btn2{border:2px solid #c8860a;color:#e8a020;padding:11px 26px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;display:inline-block}
 .btn2:hover{background:#c8860a;color:#fff}
-/* STATS */
 .stats{background:#c8860a;padding:18px 20px}
 .stinner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:10px}
 .stat{text-align:center;color:#fff}
 .stat strong{display:block;font-size:22px;font-weight:bold}
 .stat span{font-size:12px;opacity:.9}
-/* SECTION */
 .sec{padding:50px 16px}
 .sechd{text-align:center;margin-bottom:30px}
 .sechd h2{font-size:28px;color:#1a0a00;margin-bottom:8px}
 .sechd p{color:#888;font-size:14px}
 .line{width:50px;height:3px;background:#c8860a;margin:8px auto 0;border-radius:2px}
-/* CATEGORIES */
 .sec-cream{background:#fdf6ec}
 .catgrid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}
 .catcard{background:#fff;border-radius:10px;padding:22px 12px;text-align:center;text-decoration:none;color:#7b3f00;box-shadow:0 2px 8px rgba(0,0,0,.07);border:2px solid transparent;transition:all .2s;cursor:pointer}
 .catcard:hover{border-color:#c8860a;transform:translateY(-3px)}
 .catcard .ci{font-size:30px;margin-bottom:8px}
 .catcard .cn{font-size:13px;font-weight:bold}
-/* PRODUCTS */
 .sec-white{background:#fff8f0}
 .pgrid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
 .pcard{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:2px solid transparent;transition:all .3s;cursor:pointer}
@@ -75,18 +68,15 @@ header{background:#1a0a00;position:sticky;top:0;z-index:999;padding:0 16px}
 .pinfo .pr{font-size:19px;font-weight:bold;color:#c8860a;margin-bottom:12px}
 .acbtn{width:100%;background:#1a0a00;color:#fff;border:none;padding:10px;border-radius:8px;font-size:13px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif}
 .acbtn:hover{background:#c8860a}
-/* CUSTOM BANNER */
 .custombg{background:linear-gradient(135deg,#1a0a00,#3d1c00);padding:50px 20px;text-align:center}
 .custombg h2{color:#fff;font-size:28px;margin-bottom:10px}
 .custombg p{color:#ccc;font-size:15px;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
-/* WHY US */
 .sec-gray{background:#f0ebe0}
 .fgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
 .fcard{background:#fff;border-radius:12px;padding:24px 16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .ficon{font-size:34px;margin-bottom:12px}
 .fcard h3{font-size:14px;font-weight:bold;color:#1a0a00;margin-bottom:6px}
 .fcard p{font-size:13px;color:#777;line-height:1.6}
-/* CONTACT */
 .cinner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:30px}
 .cinfo h3{font-size:22px;font-weight:bold;color:#1a0a00;margin-bottom:18px}
 .citem{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
@@ -103,7 +93,6 @@ header{background:#1a0a00;position:sticky;top:0;z-index:999;padding:0 16px}
 .fg textarea{resize:vertical;min-height:80px}
 .subbtn{width:100%;background:#c8860a;color:#fff;border:none;padding:12px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif}
 .subbtn:hover{background:#1a0a00}
-/* FOOTER */
 footer{background:#0d0500;color:#888;padding:40px 16px 18px}
 .finner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px;margin-bottom:28px}
 .fbrand p{font-size:13px;color:#666;margin-top:12px;line-height:1.7}
@@ -116,13 +105,11 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
 .fcol ul li a{color:#777;text-decoration:none;font-size:13px}
 .fcol ul li a:hover{color:#e8a020}
 .fbot{border-top:1px solid #1a1a1a;padding-top:16px;text-align:center;font-size:12px;color:#444}
-/* BOTTOM NAV */
 .botnav{display:none;position:fixed;bottom:0;left:0;right:0;background:#1a0a00;z-index:990;padding:6px 0 8px;box-shadow:0 -2px 12px rgba(0,0,0,.3)}
 .botinner{display:flex;justify-content:space-around}
 .botitem{display:flex;flex-direction:column;align-items:center;gap:2px;color:#888;background:none;border:none;font-size:10px;cursor:pointer;font-family:Arial,sans-serif;padding:0 8px}
 .botitem .bi{font-size:20px}
 .botitem:hover,.botitem.active{color:#e8a020}
-/* CART */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000}
 .overlay.on{display:block}
 .cart{position:fixed;top:0;right:-400px;width:380px;max-width:100vw;height:100vh;background:#fff;z-index:1001;transition:right .3s;display:flex;flex-direction:column}
@@ -145,7 +132,6 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
 .ctot{display:flex;justify-content:space-between;font-size:17px;font-weight:bold;margin-bottom:12px;color:#1a0a00}
 .ckbtn{width:100%;background:#c8860a;color:#fff;border:none;padding:13px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif}
 .ckbtn:hover{background:#1a0a00}
-/* MODAL */
 .modal{display:none;position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px}
 .modal.on{display:flex}
 .mbox{background:#fff;border-radius:14px;max-width:520px;width:100%;overflow:hidden}
@@ -162,13 +148,10 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
 .mact .btn2{flex:1;text-align:center}
 .mclose{position:absolute;top:8px;right:8px;background:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.15)}
 .mrel{position:relative}
-/* SEARCH PAGE */
 .pview{display:none}
 .pview.on{display:block}
-/* TOAST */
 .toast{position:fixed;bottom:75px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a0a00;color:#fff;padding:11px 22px;border-radius:30px;font-size:13px;font-weight:bold;z-index:2000;opacity:0;transition:all .3s;white-space:nowrap}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-/* MOBILE */
 @media(max-width:860px){
   .navlinks{display:none}
   .menubtn{display:block}
@@ -182,7 +165,6 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
   .msgbtn{display:none}
   .finner{grid-template-columns:1fr}
 }
-/* MOBILE MENU */
 .mmenu{position:fixed;top:0;left:-280px;width:270px;height:100vh;background:#1a0a00;z-index:1050;padding:16px;overflow-y:auto;transition:left .3s}
 .mmenu.on{left:0}
 .mmclose{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;margin-bottom:18px}
@@ -193,17 +175,14 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   &#128666; ঢাকাসহ সারা বাংলাদেশে ডেলিভারি &nbsp;|&nbsp;
   <a href="tel:01707172345">&#128222; 01707-172345</a>
 </div>
 
-<!-- HEADER -->
 <header>
   <div class="hinner">
     <a href="#" class="logo" onclick="showPage('home')">
-      <div class="logo-box">&#129395;</div>
       <div class="logo-txt">
         <h1>কাঠের ফার্নিচার বিডি</h1>
         <p>চিটাগাং সেগুন কাঠ</p>
@@ -222,7 +201,6 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
   </div>
 </header>
 
-<!-- SEARCH BAR -->
 <div class="searchbar">
   <div class="sinput">
     <input type="text" id="mainSearch" placeholder="পণ্য খুঁজুন... যেমন: চেয়ার, বেড, সোফা" onkeypress="if(event.key==='Enter')doSearch()">
@@ -230,12 +208,11 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
   </div>
 </div>
 
-<!-- MOBILE MENU -->
 <div class="mmenu" id="mmenu">
   <button class="mmclose" onclick="toggleMenu()">&#10005;</button>
   <ul>
     <li><a href="#" onclick="showPage('home');toggleMenu()">&#127968; হোম</a></li>
-    <li><a href="#" onclick="showPage('home');toggleMenu();setTimeout(()=>scrollTo('products'),200)">&#129681; পণ্যসমূহ</a></li>
+    <li><a href="#" onclick="showPage('products');toggleMenu()">&#129681; পণ্যসমূহ</a></li>
     <li><a href="#" onclick="showPage('home');toggleMenu();setTimeout(()=>scrollTo('cats'),200)">&#128230; ক্যাটাগরি</a></li>
     <li><a href="#" onclick="showPage('search');toggleMenu()">&#128269; সার্চ</a></li>
     <li><a href="#" onclick="showPage('home');toggleMenu();setTimeout(()=>scrollTo('custom'),200)">&#128736; কাস্টম অর্ডার</a></li>
@@ -246,33 +223,27 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
 </div>
 <div class="overlay" id="menuOv" onclick="toggleMenu()"></div>
 
-<!-- ========== HOME PAGE ========== -->
+<!-- HOME PAGE -->
 <div id="page-home" class="pview on">
-
-<!-- HERO -->
 <section class="hero">
   <div>
     <div class="herobadge">&#10024; চিটাগাং সেগুন কাঠের বিশেষজ্ঞ</div>
     <h2>বিশুদ্ধ <span>সেগুন কাঠের</span> ফার্নিচার</h2>
     <p>উচ্চমানের সেগুন কাঠ দিয়ে তৈরি দীর্ঘস্থায়ী ফার্নিচার। আপনার পছন্দমতো ডিজাইনে কাস্টম অর্ডার নিন।</p>
     <div class="herobts">
-      <a href="#" class="btn1" onclick="scrollTo('products')">&#128722; পণ্য দেখুন</a>
+      <a href="#" class="btn1" onclick="showPage('products')">&#128722; পণ্য দেখুন</a>
       <a href="#" class="btn2" onclick="goMessenger()">&#128172; মেসেঞ্জারে অর্ডার</a>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
-  <div class="stinner">
-    <div class="stat"><strong>৫০০+</strong><span>সন্তুষ্ট গ্রাহক</span></div>
-    <div class="stat"><strong>১০+</strong><span>বছরের অভিজ্ঞতা</span></div>
-    <div class="stat"><strong>১০০%</strong><span>আসল সেগুন কাঠ</span></div>
-    <div class="stat"><strong>সারাদেশে</strong><span>ডেলিভারি</span></div>
+  <div style="text-align:center;padding:6px 0">
+    <p style="color:#fff;font-size:17px;font-weight:bold;margin-bottom:8px">ঐতিহ্য ও আধুনিকতার মিশেলে তৈরি প্রিমিয়াম কাঠের ফার্নিচার</p>
+    <p style="color:#fff3d6;font-size:14px">শতভাগ সেগুন কাঠে তৈরি আধুনিক ও ক্লাসিক ডিজাইনের ফার্নিচার</p>
   </div>
 </div>
 
-<!-- CATEGORIES -->
 <section class="sec sec-cream" id="cats">
   <div class="sechd"><h2>ক্যাটাগরি</h2><p>আপনার প্রয়োজনীয় ফার্নিচার খুঁজুন</p><div class="line"></div></div>
   <div class="catgrid">
@@ -287,20 +258,12 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="sec sec-white" id="products">
-  <div class="sechd"><h2>আমাদের পণ্যসমূহ</h2><p>১০০% সেগুন কাঠে তৈরি টেকসই ফার্নিচার</p><div class="line"></div></div>
-  <div class="pgrid" id="pgrid"></div>
-</section>
-
-<!-- CUSTOM ORDER -->
 <section class="custombg" id="custom">
   <h2>&#128736; যেকোনো ডিজাইন দিয়ে বানিয়ে নিন</h2>
   <p>আপনার পছন্দমতো রং, মাপ ও ডিজাইনে কাস্টম ফার্নিচার তৈরি করা হয়।</p>
   <a href="#" class="btn1" style="font-size:15px;padding:13px 28px" onclick="goMessenger()">&#128172; মেসেঞ্জারে কাস্টম অর্ডার দিন</a>
 </section>
 
-<!-- WHY US -->
 <section class="sec sec-gray">
   <div class="sechd"><h2>কেন আমাদের বেছে নেবেন?</h2><p>গুণমান ও বিশ্বস্ততায় আমরা সেরা</p><div class="line"></div></div>
   <div class="fgrid">
@@ -313,7 +276,6 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="sec sec-cream" id="contact">
   <div class="sechd"><h2>যোগাযোগ করুন</h2><p>আমরা সবসময় আপনার সেবায় প্রস্তুত</p><div class="line"></div></div>
   <div class="cinner">
@@ -325,7 +287,7 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
       <div class="citem"><div class="ciico">&#128172;</div><div class="citxt"><strong>মেসেঞ্জার</strong><span><a href="#" onclick="goMessenger()" style="color:#c8860a">সরাসরি মেসেজ করুন</a></span></div></div>
     </div>
     <div class="cform">
-      <h3>&#128139; অর্ডার ফর্ম</h3>
+      <h3>&#128203; অর্ডার ফর্ম</h3>
       <div class="fg"><label>আপনার নাম *</label><input type="text" id="fn" placeholder="আপনার পূর্ণ নাম"></div>
       <div class="fg"><label>ফোন নম্বর *</label><input type="tel" id="fp" placeholder="01XXXXXXXXX"></div>
       <div class="fg"><label>পণ্য নির্বাচন</label>
@@ -339,248 +301,4 @@ footer{background:#0d0500;color:#888;padding:40px 16px 18px}
           <option>সোফাসেট – ৳৫৫,০০০</option>
           <option>দরজার পাল্লা – ৳৩০,০০০</option>
           <option>ডাইনিং টেবিল – ৳৫০,০০০</option>
-          <option>চেয়ার – ৳৭,০০০</option>
-          <option>কোনার শোকেস – ৳২৫,০০০</option>
-          <option>কাস্টম ডিজাইন</option>
-        </select>
-      </div>
-      <div class="fg"><label>বার্তা</label><textarea id="fm" placeholder="পছন্দের রং, মাপ বা বিশেষ চাহিদা জানান..."></textarea></div>
-      <button class="subbtn" onclick="submitForm()">&#128172; মেসেঞ্জারে পাঠান</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="finner">
-    <div class="fbrand">
-      <a href="#" class="logo" onclick="showPage('home')">
-        <div class="logo-box">&#129395;</div>
-        <div class="logo-txt"><h1 style="color:#fff;font-size:14px">কাঠের ফার্নিচার বিডি</h1><p style="color:#e8a020;font-size:11px">চিটাগাং সেগুন কাঠ</p></div>
-      </a>
-      <p>চিটাগাং এর বিশুদ্ধ সেগুন কাঠ দিয়ে তৈরি উচ্চমানের ফার্নিচার। কাস্টম ডিজাইনে তৈরি করা হয়।</p>
-      <div class="fsoc">
-        <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="fsocico">f</a>
-        <a href="#" class="fsocico" onclick="goMessenger()">&#128172;</a>
-        <a href="tel:01707172345" class="fsocico">&#128222;</a>
-      </div>
-    </div>
-    <div class="fcol"><h4>পণ্যসমূহ</h4><ul>
-      <li><a href="#" onclick="filterCat('খাট')">খাট</a></li>
-      <li><a href="#" onclick="filterCat('টেবিল')">ডাইনিং টেবিল</a></li>
-      <li><a href="#" onclick="filterCat('সোফা')">সোফাসেট</a></li>
-      <li><a href="#" onclick="filterCat('আলমারি')">আলমারি</a></li>
-      <li><a href="#" onclick="filterCat('শোকেস')">শোকেস</a></li>
-      <li><a href="#" onclick="filterCat('চেয়ার')">চেয়ার</a></li>
-    </ul></div>
-    <div class="fcol"><h4>সার্ভিস</h4><ul>
-      <li><a href="#" onclick="goMessenger()">কাস্টম অর্ডার</a></li>
-      <li><a href="#" onclick="scrollTo('contact')">অর্ডার ফর্ম</a></li>
-      <li><a href="#" onclick="goMessenger()">মেসেঞ্জার অর্ডার</a></li>
-      <li><a href="tel:01707172345">ফোনে অর্ডার</a></li>
-    </ul></div>
-    <div class="fcol"><h4>যোগাযোগ</h4><ul>
-      <li><a href="tel:01707172345">&#128222; 01707-172345</a></li>
-      <li><a href="#">&#128205; ঢাকা, বাংলাদেশ</a></li>
-      <li><a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank">&#128077; ফেসবুক পেজ</a></li>
-      <li><a href="#" onclick="goMessenger()">&#128172; মেসেঞ্জার</a></li>
-    </ul></div>
-  </div>
-  <div class="fbot">&#169; ২০২৪ কাঠের ফার্নিচার বিডি | &#128222; 01707-172345 | &#128205; ঢাকা</div>
-</footer>
-
-</div><!-- end home -->
-
-<!-- ========== SEARCH PAGE ========== -->
-<div id="page-search" class="pview">
-  <div style="max-width:900px;margin:36px auto;padding:0 16px">
-    <h2 style="color:#1a0a00;margin-bottom:18px;font-size:22px">&#128269; পণ্য খুঁজুন</h2>
-    <div class="sinput" style="max-width:100%;margin-bottom:26px;border-radius:10px">
-      <input type="text" id="sinp" placeholder="পণ্যের নাম লিখুন..." oninput="renderSearch(this.value)" style="font-size:15px;padding:13px 18px">
-      <button onclick="renderSearch(document.getElementById('sinp').value)">&#128269;</button>
-    </div>
-    <div class="pgrid" id="sgrid"></div>
-  </div>
-</div>
-
-<!-- ========== WISHLIST PAGE ========== -->
-<div id="page-wishlist" class="pview">
-  <div style="max-width:900px;margin:36px auto;padding:0 16px">
-    <h2 style="color:#1a0a00;margin-bottom:18px;font-size:22px">&#10084;&#65039; উইশলিস্ট</h2>
-    <div class="pgrid" id="wgrid"></div>
-  </div>
-</div>
-
-<!-- BOTTOM NAV -->
-<nav class="botnav">
-  <div class="botinner">
-    <button class="botitem active" id="bn0" onclick="showPage('home')"><span class="bi">&#127968;</span>হোম</button>
-    <button class="botitem" id="bn1" onclick="showPage('search')"><span class="bi">&#128269;</span>সার্চ</button>
-    <button class="botitem" id="bn2" onclick="toggleCart()"><span class="bi">&#128722;</span>কার্ট</button>
-    <button class="botitem" id="bn3" onclick="goMessenger()"><span class="bi">&#128172;</span>অর্ডার</button>
-    <button class="botitem" id="bn4" onclick="gotoWishlist()"><span class="bi">&#10084;&#65039;</span>উইশলিস্ট</button>
-  </div>
-</nav>
-
-<!-- CART -->
-<div class="overlay" id="cartOv" onclick="toggleCart()"></div>
-<div class="cart" id="cartBox">
-  <div class="chead"><h3>&#128722; আপনার কার্ট</h3><button class="cclose" onclick="toggleCart()">&#10005;</button></div>
-  <div class="citems" id="citems"></div>
-  <div class="cfoot">
-    <div class="ctot"><span>মোট</span><span id="ctotal">৳০</span></div>
-    <button class="ckbtn" onclick="checkout()">&#128172; মেসেঞ্জারে অর্ডার নিশ্চিত করুন</button>
-  </div>
-</div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="mbox mrel">
-    <button class="mclose" onclick="closeModal()">&#10005;</button>
-    <div class="mtop">
-      <div class="mimg" id="mimg"></div>
-      <div class="minf">
-        <h3 id="mname"></h3>
-        <div class="mpr" id="mpr"></div>
-        <p id="mdesc"></p>
-        <p class="mt">&#9989; ১০০% সেগুন কাঠ</p>
-        <p class="mt">&#128666; সারাদেশে ডেলিভারি</p>
-      </div>
-    </div>
-    <div class="mact">
-      <a href="#" class="btn1" id="morderbtn">&#128172; অর্ডার করুন</a>
-      <a href="#" class="btn2" id="mcartbtn">&#128722; কার্টে যোগ</a>
-    </div>
-  </div>
-</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<script>
-var products=[
-  {id:1,name:"ড্রেসিং টেবিল",price:30000,img:"chair1.jpg.png",cat:"টেবিল",desc:"উচ্চমানের সেগুন কাঠে তৈরি সুন্দর ড্রেসিং টেবিল। আয়না সহ পাওয়া যায়।",icon:"&#129518;"},
-  {id:2,name:"খাট",price:55000,img:"chair2.jpg.png",cat:"খাট",desc:"মজবুত সেগুন কাঠের খাট। কিং ও কুইন সাইজে পাওয়া যায়।",icon:"&#128716;"},
-  {id:3,name:"শোকেস",price:50000,img:"chair3.jpg.png",cat:"শোকেস",desc:"কাচের দরজাসহ সেগুন কাঠের শোকেস। বইপত্র ও সাজসজ্জার জন্য আদর্শ।",icon:"&#128367;"},
-  {id:4,name:"আলমারি",price:45000,img:"chair4.jpg.png",cat:"আলমারি",desc:"বড় ও টেকসই সেগুন কাঠের আলমারি। প্রশস্ত সংরক্ষণ স্থান।",icon:"&#128451;"},
-  {id:5,name:"ওয়ারড্রব",price:35000,img:"chair5.jpg.png",cat:"আলমারি",desc:"আধুনিক ডিজাইনের সেগুন কাঠের ওয়ারড্রব।",icon:"&#128085;"},
-  {id:6,name:"সোফাসেট",price:55000,img:"chair6.jpg.png",cat:"সোফা",desc:"আরামদায়ক সেগুন কাঠের ফ্রেমের সোফাসেট। বসার ঘরের জন্য।",icon:"&#128715;"},
-  {id:7,name:"দরজার পাল্লা",price:30000,img:"chair7.jpg.png",cat:"দরজা",desc:"হাতে খোদাই করা নকশাযুক্ত সেগুন কাঠের দরজা।",icon:"&#128682;"},
-  {id:8,name:"ডাইনিং টেবিল",price:50000,img:"Chair8.jpg.png",cat:"টেবিল",desc:"৬ আসনের ডাইনিং টেবিল সেট। চেয়ার সহ পাওয়া যায়।",icon:"&#127869;"},
-  {id:9,name:"চেয়ার",price:7000,img:"Chair9.jpg.png",cat:"চেয়ার",desc:"আরামদায়ক সেগুন কাঠের চেয়ার। অফিস ও বাড়ির জন্য।",icon:"&#129681;"},
-  {id:10,name:"কোনার শোকেস",price:25000,img:"chair10.jpg.png",cat:"শোকেস",desc:"ঘরের কোণে রাখার জন্য বিশেষভাবে তৈরি শোকেস।",icon:"&#128310;"}
-];
-var cart=[],wishlist=[];
-
-function renderProducts(list,gid){
-  var g=document.getElementById(gid);
-  if(!list.length){g.innerHTML='<p style="text-align:center;color:#888;padding:40px;grid-column:1/-1">কোনো পণ্য পাওয়া যায়নি।</p>';return;}
-  g.innerHTML=list.map(function(p){
-    var wico=wishlist.indexOf(p.id)>-1?'&#10084;&#65039;':'&#129293;';
-    return '<div class="pcard" onclick="openModal('+p.id+')">'
-      +'<div class="pimg">'
-      +'<img src="'+p.img+'" alt="'+p.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
-      +'<div class="pph" style="display:none"><div class="pi">'+p.icon+'</div><div class="pn">'+p.name+'</div></div>'
-      +'<span class="pbadge">সেগুন কাঠ</span>'
-      +'</div>'
-      +'<div class="pinfo">'
-      +'<h3>'+p.name+'</h3>'
-      +'<div class="mat">&#9989; সেগুন কাঠ &nbsp;&#128666; হোম ডেলিভারি</div>'
-      +'<div class="pr">৳'+p.price.toLocaleString()+'</div>'
-      +'<button class="acbtn" onclick="event.stopPropagation();addCart('+p.id+')">&#128722; কার্টে যোগ করুন</button>'
-      +'</div>'
-      +'</div>';
-  }).join('');
-}
-
-function filterCat(c){
-  showPage('home');
-  var list=c==='সব'?products:products.filter(function(p){return p.cat===c||p.name.indexOf(c)>-1;});
-  setTimeout(function(){renderProducts(list,'pgrid');scrollTo('products');},150);
-}
-
-function addCart(id){
-  var p=products.find(function(x){return x.id===id;});
-  var ex=cart.find(function(x){return x.id===id;});
-  if(ex)ex.qty++;else cart.push(Object.assign({},p,{qty:1}));
-  updateCart();showToast('"'+p.name+'" কার্টে যোগ হয়েছে ✅');
-}
-function removeCart(id){cart=cart.filter(function(x){return x.id!==id;});updateCart();}
-function updateCart(){
-  var cnt=cart.reduce(function(a,b){return a+b.qty;},0);
-  document.getElementById('cartCount').textContent=cnt;
-  var tot=cart.reduce(function(a,b){return a+b.price*b.qty;},0);
-  document.getElementById('ctotal').textContent='৳'+tot.toLocaleString();
-  var el=document.getElementById('citems');
-  if(!cart.length){el.innerHTML='<div class="cempty"><span class="cei">&#128722;</span><p>কার্ট খালি আছে</p></div>';return;}
-  el.innerHTML=cart.map(function(item){
-    return '<div class="citem2">'
-      +'<div class="cithumb"><img src="'+item.img+'" alt="'+item.name+'" onerror="this.parentElement.innerHTML=\''+item.icon+'\'"></div>'
-      +'<div class="citinf"><h4>'+item.name+'</h4><div class="cp">৳'+item.price.toLocaleString()+' &times; '+item.qty+'</div></div>'
-      +'<button class="citrem" onclick="removeCart('+item.id+')">&#10005;</button>'
-      +'</div>';
-  }).join('');
-}
-function toggleCart(){
-  document.getElementById('cartBox').classList.toggle('on');
-  document.getElementById('cartOv').classList.toggle('on');
-}
-function checkout(){
-  if(!cart.length){showToast('কার্ট খালি!');return;}
-  goMessenger();
-}
-
-function toggleWish(id){
-  var i=wishlist.indexOf(id);
-  if(i>-1){wishlist.splice(i,1);showToast('উইশলিস্ট থেকে সরানো হয়েছে');}
-  else{wishlist.push(id);showToast('উইশলিস্টে যোগ হয়েছে ❤️');}
-  renderProducts(products,'pgrid');
-}
-function gotoWishlist(){
-  showPage('wishlist');
-  var wl=products.filter(function(p){return wishlist.indexOf(p.id)>-1;});
-  setTimeout(function(){
-    if(!wl.length)document.getElementById('wgrid').innerHTML='<div style="text-align:center;padding:50px;color:#aaa;grid-column:1/-1"><span style="font-size:44px;display:block;margin-bottom:10px">&#10084;&#65039;</span>উইশলিস্ট খালি আছে</div>';
-    else renderProducts(wl,'wgrid');
-  },100);
-}
-
-function openModal(id){
-  var p=products.find(function(x){return x.id===id;});
-  document.getElementById('mname').textContent=p.name;
-  document.getElementById('mpr').textContent='৳'+p.price.toLocaleString();
-  document.getElementById('mdesc').textContent=p.desc;
-  var mi=document.getElementById('mimg');
-  mi.innerHTML='<img src="'+p.img+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.innerHTML=\'<span style=font-size:60px>'+p.icon+'</span>\'">';
-  document.getElementById('morderbtn').onclick=function(){closeModal();goMessenger();};
-  document.getElementById('mcartbtn').onclick=function(){closeModal();addCart(p.id);};
-  document.getElementById('modal').classList.add('on');
-}
-function closeModal(){document.getElementById('modal').classList.remove('on');}
-
-function doSearch(){var q=document.getElementById('mainSearch').value;showPage('search');setTimeout(function(){document.getElementById('sinp').value=q;renderSearch(q);},100);}
-function renderSearch(q){var r=q?products.filter(function(p){return p.name.indexOf(q)>-1||p.cat.indexOf(q)>-1;}):products;renderProducts(r,'sgrid');}
-
-function showPage(pg){
-  document.querySelectorAll('.pview').forEach(function(el){el.classList.remove('on');});
-  document.getElementById('page-'+pg).classList.add('on');
-  document.querySelectorAll('.botitem').forEach(function(el){el.classList.remove('active');});
-  var map={home:0,search:1,wishlist:4};
-  if(map[pg]!==undefined)document.querySelectorAll('.botitem')[map[pg]].classList.add('active');
-  window.scrollTo(0,0);
-}
-function scrollTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
-function goMessenger(){window.open('https://www.facebook.com/messages/t/share/18Z1pwyez1/','_blank');}
-function toggleMenu(){document.getElementById('mmenu').classList.toggle('on');document.getElementById('menuOv').classList.toggle('on');}
-function submitForm(){
-  var n=document.getElementById('fn').value,p=document.getElementById('fp').value;
-  if(!n||!p){showToast('নাম ও ফোন নম্বর দিন');return;}
-  goMessenger();showToast('মেসেঞ্জার খুলছে...');
-}
-function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2500);}
-
-renderProducts(products,'pgrid');
-updateCart();
-</script>
-</body>
-</html>
+          <option>চেয়ার – ৳৭,
