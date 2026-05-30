@@ -1,884 +1,236 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>কাঠের ফার্নিচার BD</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700;900&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --beige:#F5ECD7;--beige2:#EDD9B0;--beige3:#E8CFA0;
-  --brown-dark:#3B1F0A;--brown:#6B3A1F;--brown-mid:#8B5130;
-  --brown-light:#C28A5A;--accent:#D4872A;--accent2:#E8A84A;
-  --white:#FFFDF7;--text:#2A1205;--text2:#6B3A1F;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Noto Sans Bengali',sans-serif;background:var(--beige);color:var(--text);overflow-x:hidden;}
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:var(--beige2);}
-::-webkit-scrollbar-thumb{background:var(--brown-light);border-radius:3px;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes marqueeAnim{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem 4vw;
-  background:rgba(59,31,10,.97);
-  backdrop-filter:blur(16px);
-  border-bottom:2px solid var(--accent);
-  transition:all .3s;
-}
-nav.scrolled{padding:.6rem 4vw;box-shadow:0 6px 30px rgba(0,0,0,.4);}
-.logo-area{display:flex;align-items:center;gap:.8rem;text-decoration:none;position:relative;}
-.logo-img-wrap{
-  width:50px;height:50px;border-radius:50%;
-  border:2px solid var(--accent);overflow:hidden;
-  background:var(--beige2);display:flex;align-items:center;justify-content:center;
-  cursor:pointer;position:relative;transition:border-color .2s;
-}
-.logo-img-wrap:hover{border-color:var(--accent2);}
-.logo-img-wrap img{width:100%;height:100%;object-fit:cover;}
-.logo-change-btn{
-  position:absolute;inset:0;background:rgba(0,0,0,.55);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity .2s;border-radius:50%;
-  font-size:.55rem;color:#fff;text-align:center;line-height:1.3;font-weight:600;
-}
-.logo-img-wrap:hover .logo-change-btn{opacity:1;}
-#logoInput{display:none;}
-.brand-name{font-family:'Noto Serif Bengali',serif;font-size:1.15rem;font-weight:900;color:var(--beige);line-height:1.15;}
-.brand-name span{color:var(--accent2);}
-.brand-sub{font-size:.6rem;color:rgba(245,236,215,.5);letter-spacing:.12em;}
-.nav-links{display:flex;list-style:none;gap:1.6rem;}
-.nav-links a{color:rgba(245,236,215,.75);text-decoration:none;font-size:.85rem;transition:color .2s;padding:.3rem 0;border-bottom:2px solid transparent;}
-.nav-links a:hover{color:var(--accent2);border-bottom-color:var(--accent2);}
-.nav-right{display:flex;align-items:center;gap:1rem;}
-.nav-phone{
-  display:flex;align-items:center;gap:.4rem;
-  color:var(--accent2);font-size:.85rem;font-weight:600;text-decoration:none;
-  background:rgba(212,135,42,.12);padding:.4rem .9rem;border-radius:3px;
-  border:1px solid rgba(212,135,42,.3);transition:background .2s;
-}
-.nav-phone:hover{background:rgba(212,135,42,.22);}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
-.ham span{display:block;width:24px;height:2px;background:var(--beige);border-radius:2px;transition:.3s;}
-.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mob-menu{
-  display:none;position:fixed;top:68px;left:0;right:0;
-  background:rgba(59,31,10,.98);padding:1.2rem 4vw 1.5rem;
-  flex-direction:column;gap:.6rem;z-index:499;
-  border-bottom:2px solid var(--accent);
-  animation:fadeIn .2s ease;
-}
-.mob-menu.open{display:flex;}
-.mob-menu a{color:var(--beige);text-decoration:none;font-size:.95rem;padding:.6rem 0;border-bottom:1px solid rgba(212,135,42,.15);}
-.mob-menu a:hover{color:var(--accent2);}
-.mob-phone{color:var(--accent2)!important;font-weight:600;}
-.hero{
-  min-height:100vh;padding:9rem 4vw 4rem;
-  background:
-    linear-gradient(150deg,rgba(59,31,10,.88) 0%,rgba(107,58,31,.55) 55%,rgba(242,204,138,.2) 100%),
-    url('1000047400.png.p...') center/cover no-repeat;
-  display:flex;align-items:center;position:relative;overflow:hidden;
-}
-.hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:130px;
-  background:linear-gradient(to top,var(--beige),transparent);
-}
-.hero-inner{max-width:600px;animation:fadeUp .9s ease both;}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(212,135,42,.18);border:1px solid rgba(212,135,42,.4);
-  color:var(--accent2);padding:.35rem 1rem;border-radius:50px;
-  font-size:.72rem;letter-spacing:.15em;margin-bottom:1.5rem;
-}
-.hero-badge::before{content:'🌿';}
-.hero h1{
-  font-family:'Noto Serif Bengali',serif;
-  font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;
-  color:#FFFDF7;line-height:1.15;margin-bottom:1rem;
-}
-.hero h1 em{font-style:normal;color:var(--accent2);}
-.hero-desc{color:rgba(255,253,247,.72);font-size:.98rem;line-height:1.9;max-width:44ch;margin-bottom:2rem;}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-main{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:var(--brown-dark);padding:.85rem 2rem;border-radius:3px;
-  font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:1rem;
-  text-decoration:none;border:none;cursor:pointer;
-  box-shadow:0 4px 20px rgba(212,135,42,.45);
-  transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:.5rem;
-}
-.btn-main:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(212,135,42,.55);}
-.btn-outline{
-  background:transparent;color:var(--beige);
-  padding:.85rem 2rem;border-radius:3px;
-  font-size:1rem;text-decoration:none;
-  border:1.5px solid rgba(245,236,215,.4);
-  transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:.5rem;
-}
-.btn-outline:hover{border-color:var(--accent2);color:var(--accent2);}
-.hero-stats{
-  display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;
-  animation:fadeUp .9s .3s ease both;opacity:0;animation-fill-mode:both;
-}
-.stat{color:var(--beige);}
-.stat-n{font-family:'Noto Serif Bengali',serif;font-size:2rem;font-weight:900;color:var(--accent2);display:block;line-height:1;}
-.stat-l{font-size:.72rem;opacity:.6;margin-top:.25rem;}
-.hero-img-side{
-  position:absolute;right:0;top:0;bottom:0;width:45%;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.hero-img-side img{
-  width:100%;height:100%;object-fit:cover;
-  opacity:.35;
-  mix-blend-mode:luminosity;
-}
-.strip{
-  background:var(--brown-dark);padding:.8rem 0;overflow:hidden;
-  border-top:1px solid rgba(212,135,42,.3);
-  border-bottom:1px solid rgba(212,135,42,.3);
-}
-.strip-inner{
-  display:flex;white-space:nowrap;
-  animation:marqueeAnim 22s linear infinite;
-}
-.strip-inner span{
-  font-family:'Noto Serif Bengali',serif;font-size:.82rem;
-  color:var(--accent);margin:0 2rem;letter-spacing:.05em;flex-shrink:0;
-}
-.strip-inner .dot{color:var(--accent2);font-size:1.1rem;margin:0 .5rem;}
-.sec{padding:5.5rem 4vw;}
-.sec-alt{background:linear-gradient(160deg,var(--beige2) 0%,var(--beige) 100%);}
-.sec-dark{background:var(--brown-dark);}
-.sec-hd{margin-bottom:3rem;}
-.sec-tag{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
-.sec-title{font-family:'Noto Serif Bengali',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;color:var(--brown-dark);line-height:1.2;}
-.sec-title.light{color:var(--beige);}
-.sec-title em{font-style:normal;color:var(--accent);}
-.divider{width:55px;height:3px;background:linear-gradient(to right,var(--accent),var(--accent2));border-radius:2px;margin:1rem 0;}
-.sec-sub{color:var(--text2);font-size:.92rem;line-height:1.85;max-width:50ch;}
-.sec-sub.light{color:rgba(245,236,215,.6);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.about-img-wrap{position:relative;}
-.about-img{
-  width:100%;aspect-ratio:3/4;object-fit:cover;
-  border-radius:4px;display:block;
-  box-shadow:16px 16px 0 var(--beige3),32px 32px 0 var(--brown-light);
-}
-.about-badge{
-  position:absolute;bottom:-1rem;right:-1rem;
-  background:var(--brown-dark);color:var(--accent2);
-  width:110px;height:110px;border-radius:50%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-family:'Noto Serif Bengali',serif;text-align:center;
-  border:3px solid var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.3);
-  animation:float 3s ease infinite;
-}
-.about-badge strong{font-size:1.7rem;font-weight:900;line-height:1;}
-.about-badge small{font-size:.58rem;opacity:.75;letter-spacing:.04em;}
-.features{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
-.feat{
-  display:flex;align-items:flex-start;gap:.9rem;
-  padding:.9rem 1.1rem;background:var(--white);
-  border-left:3px solid var(--accent);border-radius:0 4px 4px 0;
-  box-shadow:0 2px 12px rgba(59,31,10,.06);
-  transition:transform .2s,box-shadow .2s;
-}
-.feat:hover{transform:translateX(6px);box-shadow:0 4px 20px rgba(59,31,10,.1);}
-.feat-ico{font-size:1.4rem;flex-shrink:0;margin-top:.05rem;}
-.feat h4{font-family:'Noto Serif Bengali',serif;font-size:.9rem;font-weight:700;color:var(--brown-dark);}
-.feat p{font-size:.78rem;color:var(--text2);margin-top:.2rem;line-height:1.6;}
-.prod-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
-  gap:1.4rem;margin-top:2.5rem;
-}
-.prod-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(212,135,42,.2);
-  border-radius:4px;overflow:hidden;
-  transition:transform .25s,box-shadow .25s,border-color .25s;
-  cursor:pointer;
-}
-.prod-card:hover{
-  transform:translateY(-7px);
-  box-shadow:0 20px 44px rgba(0,0,0,.45);
-  border-color:rgba(212,135,42,.6);
-}
-.prod-img-wrap{overflow:hidden;position:relative;}
-.prod-img{
-  width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
-  filter:brightness(.88) saturate(.85);
-  transition:filter .35s,transform .4s;
-}
-.prod-card:hover .prod-img{filter:brightness(1) saturate(1.05);transform:scale(1.06);}
-.prod-badge{
-  position:absolute;top:.7rem;left:.7rem;
-  background:var(--accent);color:var(--brown-dark);
-  font-size:.6rem;font-weight:700;padding:.2rem .6rem;border-radius:2px;
-  letter-spacing:.05em;
-}
-.prod-body{padding:1.1rem 1.2rem;}
-.prod-tag{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);opacity:.8;}
-.prod-name{font-family:'Noto Serif Bengali',serif;font-size:1rem;font-weight:700;color:var(--beige);margin:.25rem 0;}
-.prod-price{font-family:'Noto Serif Bengali',serif;font-size:1.15rem;font-weight:900;color:var(--accent2);}
-.prod-foot{display:flex;gap:.6rem;padding:.8rem 1.2rem;border-top:1px solid rgba(212,135,42,.15);}
-.prod-btn{
-  flex:1;padding:.55rem;border-radius:3px;border:none;cursor:pointer;
-  font-family:'Noto Sans Bengali',sans-serif;font-size:.8rem;font-weight:600;
-  transition:background .2s,transform .15s;
-}
-.prod-btn-order{background:var(--accent);color:var(--brown-dark);}
-.prod-btn-order:hover{background:var(--accent2);transform:translateY(-1px);}
-.prod-btn-msg{background:rgba(255,255,255,.08);color:var(--beige);border:1px solid rgba(212,135,42,.3)!important;}
-.prod-btn-msg:hover{background:rgba(255,255,255,.14);}
-.custom-card{
-  background:linear-gradient(135deg,rgba(212,135,42,.15),rgba(232,168,74,.08));
-  border:1.5px dashed rgba(212,135,42,.5);
-  border-radius:4px;padding:2.5rem 1.5rem;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;transition:border-color .2s,background .2s;cursor:pointer;
-  min-height:280px;
-}
-.custom-card:hover{border-color:var(--accent2);background:linear-gradient(135deg,rgba(212,135,42,.22),rgba(232,168,74,.12));}
-.custom-icon{font-size:3rem;margin-bottom:1rem;animation:float 3s ease infinite;}
-.custom-card h3{font-family:'Noto Serif Bengali',serif;font-size:1.15rem;font-weight:900;color:var(--beige);margin-bottom:.5rem;}
-.custom-card p{font-size:.82rem;color:rgba(245,236,215,.6);line-height:1.7;margin-bottom:1.2rem;}
-.custom-card .btn-main{font-size:.9rem;padding:.7rem 1.5rem;}
-.lightbox{
-  position:fixed;inset:0;background:rgba(30,10,0,.93);z-index:900;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .3s;
-}
-.lightbox.open{opacity:1;pointer-events:all;}
-.lb-img{max-width:90vw;max-height:88vh;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.7);object-fit:contain;}
-.lb-close{
-  position:absolute;top:1.2rem;right:1.5rem;
-  background:rgba(212,135,42,.2);border:1px solid rgba(212,135,42,.4);
-  color:var(--beige);width:44px;height:44px;border-radius:50%;
-  font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:background .2s;
-}
-.lb-close:hover{background:rgba(212,135,42,.5);}
-.lb-caption{
-  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
-  background:rgba(59,31,10,.9);color:var(--accent2);
-  padding:.6rem 2rem;border-radius:50px;
-  font-family:'Noto Serif Bengali',serif;font-size:1rem;font-weight:700;
-  border:1px solid rgba(212,135,42,.3);white-space:nowrap;
-}
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(30,10,0,.85);z-index:800;
-  display:flex;align-items:center;justify-content:center;padding:1rem;
-  opacity:0;pointer-events:none;transition:opacity .3s;
-}
-.modal-overlay.open{opacity:1;pointer-events:all;}
-.modal{
-  background:var(--beige);border-radius:6px;width:100%;max-width:500px;
-  border:2px solid var(--accent);box-shadow:0 24px 60px rgba(0,0,0,.5);
-  overflow:hidden;animation:fadeUp .3s ease;
-}
-.modal-head{
-  background:var(--brown-dark);padding:1.2rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.modal-head h3{font-family:'Noto Serif Bengali',serif;color:var(--beige);font-size:1.1rem;font-weight:700;}
-.modal-close{background:none;border:none;color:var(--beige);font-size:1.4rem;cursor:pointer;opacity:.7;transition:opacity .2s;}
-.modal-close:hover{opacity:1;}
-.modal-body{padding:1.5rem;}
-.modal-prod-info{
-  display:flex;align-items:center;gap:1rem;
-  padding:1rem;background:var(--brown-dark);border-radius:4px;margin-bottom:1.2rem;
-}
-.modal-prod-info .pi-name{font-family:'Noto Serif Bengali',serif;font-weight:700;color:var(--beige);font-size:1rem;}
-.modal-prod-info .pi-price{color:var(--accent2);font-weight:700;font-size:.95rem;}
-.form-group{margin-bottom:1rem;}
-.form-group label{display:block;font-size:.82rem;color:var(--text2);margin-bottom:.35rem;font-weight:500;}
-.form-group input,.form-group textarea,.form-group select{
-  width:100%;padding:.7rem .9rem;border-radius:3px;
-  border:1.5px solid var(--beige3);background:var(--white);
-  font-family:'Noto Sans Bengali',sans-serif;font-size:.9rem;color:var(--text);
-  outline:none;transition:border-color .2s;
-}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);}
-.form-group textarea{resize:vertical;min-height:80px;}
-.modal-foot{padding:1rem 1.5rem 1.5rem;display:flex;gap:.8rem;}
-.btn-messenger{
-  flex:1;background:#0084FF;color:#fff;
-  padding:.8rem 1rem;border-radius:3px;border:none;cursor:pointer;
-  font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:.95rem;
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  transition:background .2s,transform .15s;
-}
-.btn-messenger:hover{background:#006ACA;transform:translateY(-2px);}
-.btn-phone-order{
-  flex:1;background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:var(--brown-dark);padding:.8rem 1rem;border-radius:3px;border:none;cursor:pointer;
-  font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:.95rem;
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  transition:transform .15s;text-decoration:none;
-}
-.btn-phone-order:hover{transform:translateY(-2px);}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem;}
-.why-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(212,135,42,.18);border-radius:4px;
-  padding:1.8rem 1.4rem;text-align:center;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-}
-.why-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(0,0,0,.35);border-color:rgba(212,135,42,.5);}
-.why-ico{font-size:2.4rem;margin-bottom:.8rem;display:block;}
-.why-card h4{font-family:'Noto Serif Bengali',serif;color:var(--beige);font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
-.why-card p{font-size:.78rem;color:rgba(245,236,215,.55);line-height:1.7;}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2rem;}
-.contact-info{display:flex;flex-direction:column;gap:1.2rem;}
-.ci-item{
-  display:flex;align-items:flex-start;gap:1rem;
-  padding:1.1rem 1.2rem;background:var(--white);
-  border-radius:4px;box-shadow:0 2px 12px rgba(59,31,10,.06);
-  border-left:3px solid var(--accent);
-}
-.ci-ico{font-size:1.5rem;flex-shrink:0;}
-.ci-text strong{display:block;font-family:'Noto Serif Bengali',serif;font-size:.9rem;color:var(--brown-dark);margin-bottom:.2rem;}
-.ci-text a,.ci-text span{color:var(--text2);font-size:.85rem;text-decoration:none;line-height:1.6;}
-.ci-text a:hover{color:var(--accent);}
-.contact-form{background:var(--white);border-radius:4px;padding:1.8rem;box-shadow:0 4px 24px rgba(59,31,10,.08);border-top:3px solid var(--accent);}
-.contact-form h3{font-family:'Noto Serif Bengali',serif;font-size:1.1rem;font-weight:700;color:var(--brown-dark);margin-bottom:1.2rem;}
-footer{
-  background:var(--brown-dark);padding:3rem 4vw 1.5rem;
-  border-top:2px solid var(--accent);
-}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;}
-.footer-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;}
-.footer-brand img{width:40px;height:40px;border-radius:50%;border:2px solid var(--accent);object-fit:cover;}
-.footer-brand-name{font-family:'Noto Serif Bengali',serif;font-size:1.1rem;font-weight:900;color:var(--beige);}
-.footer-brand-name span{color:var(--accent2);}
-.footer-desc{font-size:.82rem;color:rgba(245,236,215,.5);line-height:1.8;max-width:34ch;}
-.footer-col h4{font-family:'Noto Serif Bengali',serif;color:var(--beige);font-size:.95rem;font-weight:700;margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(212,135,42,.2);}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
-.footer-links a{color:rgba(245,236,215,.55);font-size:.82rem;text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--accent2);}
-.footer-bottom{
-  border-top:1px solid rgba(212,135,42,.15);padding-top:1.2rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
-}
-.footer-bottom p{font-size:.75rem;color:rgba(245,236,215,.4);}
-.social-links{display:flex;gap:.8rem;}
-.social-link{
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(212,135,42,.12);border:1px solid rgba(212,135,42,.3);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--accent2);font-size:.85rem;text-decoration:none;
-  transition:background .2s,transform .2s;
-}
-.social-link:hover{background:rgba(212,135,42,.3);transform:translateY(-2px);}
-.float-btns{
-  position:fixed;bottom:1.5rem;right:1.5rem;z-index:600;
-  display:flex;flex-direction:column;gap:.7rem;align-items:flex-end;
-}
-.fab{
-  width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s,box-shadow .2s;
-  text-decoration:none;position:relative;
-}
-.fab:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 8px 24px rgba(0,0,0,.45);}
-.fab-msg{background:#0084FF;}
-.fab-call{background:linear-gradient(135deg,var(--accent),var(--accent2));}
-.fab svg{width:24px;height:24px;fill:#fff;}
-.fab-label{
-  background:var(--brown-dark);color:var(--beige);
-  font-size:.7rem;padding:.25rem .6rem;border-radius:3px;
-  position:absolute;right:62px;white-space:nowrap;
-  opacity:0;transition:opacity .2s;pointer-events:none;
-  border:1px solid rgba(212,135,42,.3);
-}
-.fab:hover .fab-label{opacity:1;}
-@media(max-width:900px){
-  .nav-links{display:none;}
-  .ham{display:flex;}
-  .nav-phone{display:none;}
-  .hero-img-side{display:none;}
-  .hero{padding:8rem 4vw 4rem;}
-  .about-grid,.contact-grid{grid-template-columns:1fr;}
-  .about-img-wrap{margin-bottom:3rem;}
-  .footer-grid{grid-template-columns:1fr;}
-}
-@media(max-width:600px){
-  .hero h1{font-size:2.2rem;}
-  .hero-stats{gap:1.5rem;}
-  .stat-n{font-size:1.6rem;}
-  .prod-grid{grid-template-columns:1fr 1fr;}
-  .modal-foot{flex-direction:column;}
-}
-@media(max-width:420px){
-  .prod-grid{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>কাঠের ফার্নিচার বিডি – সেগুন কাঠের রাজকীয় ফার্নিচার</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --teak:      #8B4513;
+      --teak-dark: #5C2E0A;
+      --teak-light:#C68642;
+      --gold:      #D4A017;
+      --gold-light:#F0C040;
+      --cream:     #FAF3E8;
+      --warm-white:#FFF8F0;
+      --charcoal:  #1C1209;
+      --gray:      #6B5B45;
+      --light-gray:#E8DDD0;
+      --hero-bg:   linear-gradient(135deg,#1C0A02 0%,#3B1A06 40%,#5C2E0A 100%);
+      --card-shadow: 0 8px 32px rgba(92,46,10,0.18);
+    }
 
-<!-- NAVBAR -->
-<nav id="navbar">
-  <a class="logo-area" href="#home" onclick="return false;">
-    <div class="logo-img-wrap" onclick="document.getElementById('logoInput').click();event.stopPropagation();" title="লোগো পরিবর্তন করুন">
-      <img id="logoImg" src="logo.png" alt="Logo" onerror="this.style.display='none'"/>
-      <div class="logo-change-btn">লোগো<br>পরিবর্তন</div>
-    </div>
-    <input type="file" id="logoInput" accept="image/*"/>
-    <div>
-      <div class="brand-name">কাঠের ফার্নিচার <span>BD</span></div>
-      <div class="brand-sub">সেগুন কাঠ · আভিজাত্যে গড়া</div>
-    </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#home">হোম</a></li>
-    <li><a href="#products">পণ্যসমূহ</a></li>
-    <li><a href="#about">আমাদের সম্পর্কে</a></li>
-    <li><a href="#custom">কাস্টম ডিজাইন</a></li>
-    <li><a href="#contact">যোগাযোগ</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-phone" href="tel:01707172345">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-      01707172345
-    </a>
-    <button class="ham" id="hamBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Hind Siliguri',sans-serif;background:#FAF3E8;color:var(--charcoal);overflow-x:hidden;}
 
-<!-- MOBILE MENU -->
-<nav class="mob-menu" id="mobMenu">
-  <a href="#home" onclick="closeMob()">🏠 হোম</a>
-  <a href="#products" onclick="closeMob()">🪑 পণ্যসমূহ</a>
-  <a href="#about" onclick="closeMob()">ℹ️ আমাদের সম্পর্কে</a>
-  <a href="#custom" onclick="closeMob()">✏️ কাস্টম ডিজাইন</a>
-  <a href="#contact" onclick="closeMob()">📞 যোগাযোগ</a>
-  <a class="mob-phone" href="tel:01707172345">📱 01707172345</a>
-</nav>
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce{background:var(--teak-dark);color:var(--gold-light);text-align:center;padding:9px 16px;font-size:.85rem;letter-spacing:.04em;}
+    .announce a{color:var(--gold-light);text-decoration:none;font-weight:600;}
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-img-side">
-    <img src="1000047400.png.p..." alt="furniture"/>
-  </div>
-  <div class="hero-inner">
-    <div class="hero-badge">১০০% সেগুন কাঠ · হাতে বোনা ফার্নিচার</div>
-    <h1>আভিজাত্যে গড়া<br><em>কাঠের ফার্নিচার</em></h1>
-    <p class="hero-desc">প্রতিটি আসবাব তৈরি হয় দক্ষ কারিগরের হাতে, সেরা সেগুন কাঠ দিয়ে। আপনার স্বপ্নের ঘর সাজান আমাদের বিশেষ কারুকাজ খচিত ফার্নিচার দিয়ে।</p>
-    <div class="hero-btns">
-      <a href="#products" class="btn-main">🪑 পণ্য দেখুন</a>
-      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-outline">💬 মেসেজ করুন</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-n">৫০০+</span><span class="stat-l">সন্তুষ্ট গ্রাহক</span></div>
-      <div class="stat"><span class="stat-n">১৫+</span><span class="stat-l">বছরের অভিজ্ঞতা</span></div>
-      <div class="stat"><span class="stat-n">১০০%</span><span class="stat-l">সেগুন কাঠ গ্যারান্টি</span></div>
-    </div>
-  </div>
-</section>
+    /* ── HEADER ── */
+    header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 16px rgba(92,46,10,.12);}
+    .header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;gap:16px;padding:12px 24px;flex-wrap:wrap;}
+    .logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .logo-icon{width:56px;height:56px;border-radius:50%;background:var(--hero-bg);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;border:2px solid var(--gold);}
+    .logo-text{display:flex;flex-direction:column;}
+    .logo-text .brand{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--teak-dark);line-height:1.1;}
+    .logo-text .sub{font-size:.72rem;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;}
 
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-inner">
-    <span>🌿 সেগুন কাঠ</span><span class="dot">✦</span>
-    <span>হাতে তৈরি</span><span class="dot">✦</span>
-    <span>কাস্টম ডিজাইন</span><span class="dot">✦</span>
-    <span>ডেলিভারি সুবিধা</span><span class="dot">✦</span>
-    <span>১০০% গ্যারান্টি</span><span class="dot">✦</span>
-    <span>সেরা মান</span><span class="dot">✦</span>
-    <span>🌿 সেগুন কাঠ</span><span class="dot">✦</span>
-    <span>হাতে তৈরি</span><span class="dot">✦</span>
-    <span>কাস্টম ডিজাইন</span><span class="dot">✦</span>
-    <span>ডেলিভারি সুবিধা</span><span class="dot">✦</span>
-    <span>১০০% গ্যারান্টি</span><span class="dot">✦</span>
-    <span>সেরা মান</span><span class="dot">✦</span>
-  </div>
-</div>
+    nav{flex:1;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;}
+    nav a{text-decoration:none;color:var(--charcoal);font-size:.88rem;font-weight:500;padding:7px 13px;border-radius:6px;transition:.2s;}
+    nav a:hover{background:var(--cream);color:var(--teak);}
 
-<!-- PRODUCTS -->
-<section class="sec sec-dark" id="products">
-  <div class="sec-hd">
-    <p class="sec-tag">আমাদের পণ্যসমূহ</p>
-    <h2 class="sec-title light">বেছে নিন আপনার <em>পছন্দের আসবাব</em></h2>
-    <div class="divider"></div>
-    <p class="sec-sub light">প্রতিটি পণ্য সেগুন কাঠ দিয়ে তৈরি। ছবিতে ক্লিক করলে বড় করে দেখতে পাবেন।</p>
-  </div>
-  <div class="prod-grid" id="prodGrid"></div>
-</section>
+    .header-actions{display:flex;align-items:center;gap:10px;margin-left:auto;}
+    .search-box{display:flex;align-items:center;border:1.5px solid var(--light-gray);border-radius:8px;overflow:hidden;background:#fff;}
+    .search-box input{border:none;outline:none;padding:8px 12px;font-size:.85rem;font-family:'Hind Siliguri',sans-serif;width:170px;background:transparent;}
+    .search-box button{background:var(--teak);border:none;color:#fff;padding:9px 13px;cursor:pointer;font-size:.95rem;transition:.2s;}
+    .search-box button:hover{background:var(--teak-dark);}
+    .cart-btn{position:relative;background:var(--teak);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:7px;font-size:.88rem;font-family:'Hind Siliguri',sans-serif;font-weight:600;transition:.2s;}
+    .cart-btn:hover{background:var(--teak-dark);}
+    .cart-count{background:var(--gold);color:var(--charcoal);border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
 
-<!-- ABOUT -->
-<section class="sec" id="about">
-  <div class="about-grid">
-    <div class="about-img-wrap">
-      <img class="about-img" src="chair1.jpg.png" alt="কাঠের ফার্নিচার" onerror="this.src='logo.png'"/>
-      <div class="about-badge">
-        <strong>১৫+</strong>
-        <small>বছরের অভিজ্ঞতা</small>
-      </div>
-    </div>
-    <div>
-      <p class="sec-tag">আমাদের সম্পর্কে</p>
-      <h2 class="sec-title">কেন আমরা <em>আলাদা?</em></h2>
-      <div class="divider"></div>
-      <p class="sec-sub">আমরা বিশ্বাস করি, একটি সুন্দর ঘর মানুষের জীবনকে সুন্দর করে তোলে। তাই আমাদের প্রতিটি আসবাব তৈরিতে থাকে অসীম যত্ন, দক্ষতা এবং ভালোবাসা।</p>
-      <div class="features">
-        <div class="feat"><span class="feat-ico">🌿</span>
-          <div><h4>১০০% সেগুন কাঠ</h4><p>বাজারের সেরা সেগুন কাঠ ব্যবহার করা হয়। প্রতিটি কাঠ যত্নসহকারে বাছাই করা।</p></div>
-        </div>
-        <div class="feat"><span class="feat-ico">🔨</span>
-          <div><h4>দক্ষ কারিগর</h4><p>১৫+ বছরের অভিজ্ঞ কারিগরদের হাতে তৈরি প্রতিটি আসবাব।</p></div>
-        </div>
-        <div class="feat"><span class="feat-ico">✏️</span>
-          <div><h4>কাস্টম ডিজাইন</h4><p>আপনার পছন্দের ডিজাইন অনুযায়ী আসবাব তৈরি করে দেওয়া হয়।</p></div>
-        </div>
-        <div class="feat"><span class="feat-ico">🚚</span>
-          <div><h4>ডেলিভারি সুবিধা</h4><p>সারা বাংলাদেশে ডেলিভারির ব্যবস্থা আছে। নিরাপদে পৌঁছে দেওয়ার গ্যারান্টি।</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    .hamburger{display:none;background:none;border:2px solid var(--teak);color:var(--teak);padding:7px 10px;border-radius:7px;cursor:pointer;font-size:1.1rem;}
 
-<!-- CUSTOM DESIGN -->
-<section class="sec sec-alt" id="custom">
-  <div class="sec-hd" style="text-align:center;">
-    <p class="sec-tag">বিশেষ অপশন</p>
-    <h2 class="sec-title" style="text-align:center;">যেকোনো ডিজাইনে <em>বানিয়ে নিন</em></h2>
-    <div class="divider" style="margin:1rem auto;"></div>
-    <p class="sec-sub" style="margin:0 auto;text-align:center;">আপনার মনমতো ডিজাইন দিয়ে যেকোনো আসবাব তৈরি করে নিতে পারবেন।</p>
-  </div>
-  <div style="max-width:600px;margin:2.5rem auto 0;background:var(--white);border-radius:6px;padding:2.5rem;border-top:4px solid var(--accent);box-shadow:0 8px 32px rgba(59,31,10,.1);text-align:center;">
-    <div style="font-size:3.5rem;margin-bottom:1rem;">✏️</div>
-    <h3 style="font-family:'Noto Serif Bengali',serif;font-size:1.3rem;font-weight:900;color:var(--brown-dark);margin-bottom:.8rem;">আপনার স্বপ্নের ডিজাইন</h3>
-    <p style="color:var(--text2);font-size:.9rem;line-height:1.85;margin-bottom:1.5rem;">
-      আপনি যে ডিজাইনের আসবাব চান, তার ছবি বা বিবরণ দিন। আমাদের দক্ষ কারিগররা সেই অনুযায়ী তৈরি করে দেবেন।<br>
-      <strong style="color:var(--accent);">মূল্য নির্ধারিত হবে ডিজাইন ও কাঠ অনুযায়ী।</strong>
-    </p>
-    <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-main">💬 মেসেঞ্জারে আলোচনা করুন</a>
-      <a href="tel:01707172345" class="btn-outline" style="color:var(--brown-mid);border-color:var(--brown-light);">📞 ফোন করুন</a>
-    </div>
-  </div>
-</section>
+    /* ── MOBILE NAV ── */
+    .mobile-nav{display:none;background:#fff;border-top:1px solid var(--light-gray);padding:16px 24px;flex-direction:column;gap:6px;}
+    .mobile-nav a{text-decoration:none;color:var(--charcoal);padding:10px 14px;border-radius:7px;font-weight:500;display:block;}
+    .mobile-nav a:hover{background:var(--cream);}
+    .mobile-nav.open{display:flex;}
 
-<!-- WHY US -->
-<section class="sec sec-dark">
-  <div class="sec-hd" style="text-align:center;">
-    <p class="sec-tag">আমাদের সুবিধা</p>
-    <h2 class="sec-title light" style="text-align:center;">কেন আমাদের <em>বেছে নেবেন?</em></h2>
-    <div class="divider" style="margin:1rem auto;"></div>
-  </div>
-  <div class="why-grid">
-    <div class="why-card"><span class="why-ico">🌿</span><h4>সেগুন কাঠের গ্যারান্টি</h4><p>প্রতিটি পণ্যে ব্যবহার করা হয় খাঁটি সেগুন কাঠ।</p></div>
-    <div class="why-card"><span class="why-ico">💰</span><h4>সাশ্রয়ী মূল্য</h4><p>কারখানা থেকে সরাসরি বিক্রয়, তাই দামে সাশ্রয়।</p></div>
-    <div class="why-card"><span class="why-ico">⚡</span><h4>দ্রুত ডেলিভারি</h4><p>সারাদেশে দ্রুত ও নিরাপদ ডেলিভারি নিশ্চিত।</p></div>
-    <div class="why-card"><span class="why-ico">🔧</span><h4>ওয়ারেন্টি সুবিধা</h4><p>প্রতিটি পণ্যে রয়েছে মানের গ্যারান্টি ও সার্ভিস।</p></div>
-    <div class="why-card"><span class="why-ico">✏️</span><h4>কাস্টম অর্ডার</h4><p>আপনার ইচ্ছামতো সাইজ ও ডিজাইনে তৈরি সম্ভব।</p></div>
-    <div class="why-card"><span class="why-ico">💬</span><h4>সহজ যোগাযোগ</h4><p>ফেসবুক মেসেঞ্জার বা ফোনে সহজেই যোগাযোগ করুন।</p></div>
-  </div>
-</section>
+    /* ── HERO ── */
+    .hero{background:var(--hero-bg);color:#fff;padding:80px 24px 60px;position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A017' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+    .hero-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--charcoal);font-size:.75rem;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:16px;letter-spacing:.06em;text-transform:uppercase;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.2;margin-bottom:16px;}
+    .hero h1 span{color:var(--gold-light);}
+    .hero p{font-size:1.05rem;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:28px;}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+    .btn-primary{background:var(--gold);color:var(--charcoal);padding:13px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.95rem;transition:.2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Hind Siliguri',sans-serif;}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .btn-outline{background:transparent;color:#fff;padding:13px 28px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.95rem;border:2px solid rgba(255,255,255,.4);transition:.2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Hind Siliguri',sans-serif;}
+    .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+    .hero-img-wrap{display:flex;justify-content:center;align-items:center;}
+    .hero-img-wrap img{width:100%;max-width:440px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45);border:3px solid var(--gold);object-fit:cover;}
+    .hero-stats{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap;}
+    .stat{text-align:center;}
+    .stat .num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold-light);}
+    .stat .lbl{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:2px;}
 
-<!-- CONTACT -->
-<section class="sec" id="contact">
-  <div class="sec-hd">
-    <p class="sec-tag">যোগাযোগ করুন</p>
-    <h2 class="sec-title">আমাদের সাথে <em>কথা বলুন</em></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="ci-item">
-        <span class="ci-ico">📱</span>
-        <div class="ci-text"><strong>ফোন / WhatsApp</strong><a href="tel:01707172345">01707172345</a></div>
-      </div>
-      <div class="ci-item">
-        <span class="ci-ico">💬</span>
-        <div class="ci-text"><strong>Facebook Messenger</strong><a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank">আমাদের Facebook পেজ</a></div>
-      </div>
-      <div class="ci-item">
-        <span class="ci-ico">🕐</span>
-        <div class="ci-text"><strong>কাজের সময়</strong><span>সকাল ৯টা — রাত ৯টা (প্রতিদিন)</span></div>
-      </div>
-      <div class="ci-item">
-        <span class="ci-ico">🚚</span>
-        <div class="ci-text"><strong>ডেলিভারি এলাকা</strong><span>সারা বাংলাদেশ</span></div>
-      </div>
-      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-main" style="margin-top:.5rem;justify-content:center;">
-        <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        Facebook-এ মেসেজ করুন
-      </a>
-    </div>
-    <div class="contact-form">
-      <h3>📩 বার্তা পাঠান</h3>
-      <div class="form-group">
-        <label>আপনার নাম</label>
-        <input type="text" placeholder="আপনার পুরো নাম লিখুন"/>
-      </div>
-      <div class="form-group">
-        <label>ফোন নম্বর</label>
-        <input type="tel" placeholder="01XXXXXXXXX"/>
-      </div>
-      <div class="form-group">
-        <label>কোন পণ্যটি চাই?</label>
-        <select>
-          <option value="">পণ্য বেছে নিন</option>
-          <option>ড্রেসিং টেবিল — ৳৩০,০০০</option>
-          <option>খাট — ৳৫৫,০০০</option>
-          <option>শোকেস — ৳৫০,০০০</option>
-          <option>আলমারি — ৳৪৫,০০০</option>
-          <option>ওয়ার্ডরব — ৳৩৫,০০০</option>
-          <option>সোফাসেট — ৳৫৫,০০০</option>
-          <option>দরজার পাল্লা — ৳৩০,০০০</option>
-          <option>কাস্টম ডিজাইন</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>বিস্তারিত (ঐচ্ছিক)</label>
-        <textarea placeholder="কোনো বিশেষ চাহিদা থাকলে লিখুন..."></textarea>
-      </div>
-      <button class="btn-messenger" onclick="sendToMessenger()">
-        <svg style="width:18px;height:18px;fill:#fff" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.193 14.963l-3.056-3.26-5.963 3.26L10.733 8l3.13 3.26L19.752 8l-6.559 6.963z"/></svg>
-        Messenger-এ পাঠান
-      </button>
-    </div>
-  </div>
-</section>
+    /* ── CUSTOM ORDER BANNER ── */
+    .custom-banner{background:linear-gradient(135deg,var(--gold) 0%,#C68642 100%);padding:28px 24px;text-align:center;}
+    .custom-banner-inner{max-width:800px;margin:auto;}
+    .custom-banner h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--charcoal);margin-bottom:8px;}
+    .custom-banner p{color:var(--teak-dark);margin-bottom:16px;font-size:.95rem;}
+    .custom-banner .btn-primary{background:var(--teak-dark);color:#fff;}
+    .custom-banner .btn-primary:hover{background:var(--charcoal);}
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">
-        <img id="footerLogo" src="logo.png" alt="logo" onerror="this.style.display='none'"/>
-        <div class="footer-brand-name">কাঠের ফার্নিচার <span>BD</span></div>
-      </div>
-      <p class="footer-desc">সেগুন কাঠের আভিজাত্যে তৈরি প্রতিটি আসবাব। আমাদের লক্ষ্য আপনার ঘরকে স্বপ্নের মতো সুন্দর করে তোলা।</p>
-    </div>
-    <div class="footer-col">
-      <h4>দ্রুত লিংক</h4>
-      <ul class="footer-links">
-        <li><a href="#home">হোম</a></li>
-        <li><a href="#products">পণ্যসমূহ</a></li>
-        <li><a href="#about">আমাদের সম্পর্কে</a></li>
-        <li><a href="#custom">কাস্টম ডিজাইন</a></li>
-        <li><a href="#contact">যোগাযোগ</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>যোগাযোগ</h4>
-      <ul class="footer-links">
-        <li><a href="tel:01707172345">📱 01707172345</a></li>
-        <li><a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank">💬 Facebook Page</a></li>
-        <li><a href="#">🕐 সকাল ৯টা — রাত ৯টা</a></li>
-        <li><a href="#">🚚 সারা বাংলাদেশ ডেলিভারি</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© ২০২৪ কাঠের ফার্নিচার BD · সর্বস্বত্ব সংরক্ষিত</p>
-    <div class="social-links">
-      <a class="social-link" href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" title="Facebook">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a class="social-link" href="tel:01707172345" title="Phone">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-      </a>
-    </div>
-  </div>
-</footer>
+    /* ── SECTION HEADER ── */
+    .section-header{text-align:center;margin-bottom:40px;}
+    .section-header .tag{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teak);margin-bottom:8px;display:block;}
+    .section-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--teak-dark);}
+    .section-header p{color:var(--gray);margin-top:10px;font-size:.95rem;}
+    .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--teak-light));margin:14px auto 0;border-radius:2px;}
 
-<!-- FLOATING BUTTONS -->
-<div class="float-btns">
-  <a class="fab fab-msg" href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" title="Messenger">
-    <div class="fab-label">মেসেজ করুন</div>
-    <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.193 14.963l-3.056-3.26-5.963 3.26L10.733 8l3.13 3.26L19.752 8l-6.559 6.963z"/></svg>
-  </a>
-  <a class="fab fab-call" href="tel:01707172345" title="Call">
-    <div class="fab-label">ফোন করুন</div>
-    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-  </a>
-</div>
+    /* ── PRODUCTS ── */
+    #products{padding:72px 24px;background:var(--warm-white);}
+    .products-inner{max-width:1280px;margin:auto;}
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;}
+    .filter-btn{padding:8px 20px;border-radius:24px;border:1.5px solid var(--light-gray);background:#fff;color:var(--gray);font-size:.84rem;cursor:pointer;font-family:'Hind Siliguri',sans-serif;font-weight:500;transition:.2s;}
+    .filter-btn.active,.filter-btn:hover{background:var(--teak);color:#fff;border-color:var(--teak);}
+    .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+    .product-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);transition:.25s;cursor:pointer;position:relative;}
+    .product-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(92,46,10,.24);}
+    .product-card .badge{position:absolute;top:12px;left:12px;background:var(--teak);color:#fff;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:12px;z-index:2;}
+    .product-card img{width:100%;height:220px;object-fit:cover;display:block;transition:.3s;}
+    .product-card:hover img{transform:scale(1.04);}
+    .product-card .img-wrap{overflow:hidden;position:relative;}
+    .product-card .overlay{position:absolute;inset:0;background:rgba(92,46,10,.6);opacity:0;display:flex;align-items:center;justify-content:center;gap:10px;transition:.25s;}
+    .product-card:hover .overlay{opacity:1;}
+    .overlay-btn{background:#fff;color:var(--teak);border:none;padding:9px 16px;border-radius:7px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:.2s;}
+    .overlay-btn:hover{background:var(--gold);}
+    .product-card .info{padding:16px;}
+    .product-card .name{font-weight:700;font-size:1rem;color:var(--teak-dark);margin-bottom:4px;}
+    .product-card .material{font-size:.78rem;color:var(--gray);margin-bottom:10px;}
+    .product-card .price-row{display:flex;align-items:center;justify-content:space-between;}
+    .product-card .price{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--teak);}
+    .add-cart{background:var(--teak);color:#fff;border:none;padding:8px 14px;border-radius:7px;font-size:.8rem;cursor:pointer;font-family:'Hind Siliguri',sans-serif;font-weight:600;transition:.2s;}
+    .add-cart:hover{background:var(--teak-dark);}
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLB(event)">
-  <button class="lb-close" onclick="closeLightbox()">✕</button>
-  <img class="lb-img" id="lbImg" src="" alt=""/>
-  <div class="lb-caption" id="lbCaption"></div>
-</div>
+    /* ── WHY US ── */
+    #why{padding:72px 24px;background:var(--cream);}
+    .why-inner{max-width:1100px;margin:auto;}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px;margin-top:40px;}
+    .why-card{background:#fff;border-radius:14px;padding:28px 22px;text-align:center;box-shadow:0 4px 18px rgba(92,46,10,.08);border-top:4px solid var(--gold);}
+    .why-icon{font-size:2rem;margin-bottom:14px;}
+    .why-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--teak-dark);margin-bottom:8px;}
+    .why-card p{font-size:.85rem;color:var(--gray);line-height:1.6;}
 
-<!-- ORDER MODAL -->
-<div class="modal-overlay" id="orderModal">
-  <div class="modal">
-    <div class="modal-head">
-      <h3>🛒 অর্ডার করুন</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-prod-info">
-        <div>
-          <div class="pi-name" id="modalProd">পণ্যের নাম</div>
-          <div class="pi-price" id="modalPrice">মূল্য</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>আপনার নাম *</label>
-        <input type="text" id="ordName" placeholder="পুরো নাম লিখুন"/>
-      </div>
-      <div class="form-group">
-        <label>ফোন নম্বর *</label>
-        <input type="tel" id="ordPhone" placeholder="01XXXXXXXXX"/>
-      </div>
-      <div class="form-group">
-        <label>ঠিকানা</label>
-        <input type="text" id="ordAddr" placeholder="জেলা / উপজেলা / বিস্তারিত"/>
-      </div>
-      <div class="form-group">
-        <label>বিশেষ চাহিদা (ঐচ্ছিক)</label>
-        <textarea id="ordNote" placeholder="রঙ, সাইজ বা অন্য কোনো তথ্য..."></textarea>
-      </div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn-messenger" onclick="sendOrderMessenger()">
-        <svg style="width:18px;height:18px;fill:#fff" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.193 14.963l-3.056-3.26-5.963 3.26L10.733 8l3.13 3.26L19.752 8l-6.559 6.963z"/></svg>
-        Messenger অর্ডার
-      </button>
-      <a class="btn-phone-order" href="tel:01707172345">
-        📞 ফোনে অর্ডার
-      </a>
-    </div>
-  </div>
-</div>
+    /* ── ABOUT ── */
+    #about{padding:72px 24px;background:var(--teak-dark);}
+    .about-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+    .about-text .tag{color:var(--gold-light);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:10px;}
+    .about-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.2rem);color:#fff;margin-bottom:18px;}
+    .about-text p{color:rgba(255,255,255,.78);line-height:1.8;font-size:.95rem;margin-bottom:14px;}
+    .about-text ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+    .about-text ul li{color:rgba(255,255,255,.85);font-size:.9rem;display:flex;align-items:center;gap:10px;}
+    .about-text ul li::before{content:'✦';color:var(--gold);font-size:.75rem;}
+    .about-img{border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.4);border:3px solid var(--gold);}
+    .about-img img{width:100%;display:block;height:360px;object-fit:cover;}
 
-<script>
-// ── PRODUCT DATA — chair image names fixed to match GitHub files ──
-const products = [
-  {id:1, img:'chair1.jpg.png', name:'ড্রেসিং টেবিল', price:'৳৩০,০০০', tag:'বেডরুম'},
-  {id:2, img:'chair2.jpg.png', name:'খাট',            price:'৳৫৫,০০০', tag:'বেডরুম'},
-  {id:3, img:'chair3.jpg.png', name:'শোকেস',          price:'৳৫০,০০০', tag:'ড্রয়িং রুম'},
-  {id:4, img:'chair4.jpg.png', name:'আলমারি',         price:'৳৪৫,০০০', tag:'বেডরুম'},
-  {id:5, img:'chair5.jpg.png', name:'ওয়ার্ডরব',      price:'৳৩৫,০০০', tag:'বেডরুম'},
-  {id:6, img:'chair6.jpg.png', name:'সোফাসেট',        price:'৳৫৫,০০০', tag:'ড্রয়িং রুম'},
-  {id:7, img:'chair7.jpg.png', name:'দরজার পাল্লা',  price:'৳৩০,০০০', tag:'দরজা'},
-  {id:8, img:'',               name:'যেকোনো ডিজাইন', price:'মূল্য আলোচনাসাপেক্ষ', tag:'কাস্টম'},
-];
+    /* ── TESTIMONIALS ── */
+    #reviews{padding:72px 24px;background:var(--warm-white);}
+    .reviews-inner{max-width:1100px;margin:auto;}
+    .review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:40px;}
+    .review-card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 18px rgba(92,46,10,.08);border-left:4px solid var(--gold);}
+    .stars{color:var(--gold);font-size:1rem;margin-bottom:10px;}
+    .review-card p{font-size:.88rem;color:var(--gray);line-height:1.7;margin-bottom:14px;}
+    .reviewer{font-weight:700;color:var(--teak-dark);font-size:.85rem;}
 
-const grid = document.getElementById('prodGrid');
-products.forEach(p => {
-  const isCustom = p.id === 8;
-  const card = document.createElement('div');
-  if(isCustom){
-    card.className='custom-card';
-    card.innerHTML=`
-      <div class="custom-icon">✏️</div>
-      <h3>${p.name}</h3>
-      <p>আপনার পছন্দের ডিজাইন দিয়ে যেকোনো আসবাব তৈরি করে নিতে পারবেন। মূল্য নির্ধারিত হবে ডিজাইন অনুযায়ী।</p>
-      <a href="https://www.facebook.com/share/18Z1pwyez1/" target="_blank" class="btn-main">💬 ডিজাইন দিন</a>
-    `;
-  } else {
-    card.className='prod-card';
-    card.innerHTML=`
-      <div class="prod-img-wrap">
-        <img class="prod-img" src="${p.img}" alt="${p.name}"
-          onerror="this.src='logo.png'"
-          onclick="openLightbox('${p.img}','${p.name} — ${p.price}')"/>
-        <span class="prod-badge">${p.tag}</span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-tag">সেগুন কাঠ</div>
-        <div class="prod-name">${p.name}</div>
-        <div class="prod-price">${p.price}</div>
-      </div>
-      <div class="prod-foot">
-        <button class="prod-btn prod-btn-order" onclick="openModal('${p.name}','${p.price}')">🛒 অর্ডার করুন</button>
-        <button class="prod-btn prod-btn-msg" onclick="msgProduct('${p.name}','${p.price}')">💬 জিজ্ঞেস করুন</button>
-      </div>
-    `;
-  }
-  grid.appendChild(card);
-});
+    /* ── CONTACT ── */
+    #contact{padding:72px 24px;background:linear-gradient(135deg,#1C0A02 0%,#3B1A06 100%);}
+    .contact-inner{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+    .contact-info .tag{color:var(--gold-light);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:10px;}
+    .contact-info h2{font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff;margin-bottom:20px;}
+    .contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
+    .contact-icon{font-size:1.3rem;color:var(--gold);margin-top:2px;flex-shrink:0;}
+    .contact-item h4{color:#fff;font-size:.9rem;font-weight:600;margin-bottom:3px;}
+    .contact-item p,.contact-item a{color:rgba(255,255,255,.72);font-size:.87rem;text-decoration:none;}
+    .contact-item a:hover{color:var(--gold-light);}
+    .social-links{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
+    .social-btn{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:9px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.2s;font-family:'Hind Siliguri',sans-serif;}
+    .social-btn.fb{background:#1877F2;color:#fff;}
+    .social-btn.fb:hover{background:#1557C0;}
+    .social-btn.msg{background:linear-gradient(135deg,#0084FF,#A033FF);color:#fff;}
+    .social-btn.msg:hover{opacity:.9;}
+    .order-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:32px;}
+    .order-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:20px;}
+    .form-group{margin-bottom:16px;}
+    .form-group label{display:block;color:rgba(255,255,255,.8);font-size:.83rem;margin-bottom:6px;font-weight:500;}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:11px 14px;border-radius:8px;font-size:.88rem;font-family:'Hind Siliguri',sans-serif;outline:none;transition:.2s;}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.4);}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.14);}
+    .form-group select option{background:#3B1A06;color:#fff;}
+    .form-group textarea{resize:vertical;min-height:90px;}
+    .order-btn{width:100%;background:var(--gold);color:var(--charcoal);padding:13px;border:none;border-radius:9px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:.2s;margin-top:6px;}
+    .order-btn:hover{background:var(--gold-light);transform:translateY(-1px);}
 
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',scrollY>60);
-});
+    /* ── FOOTER ── */
+    footer{background:#0D0600;color:rgba(255,255,255,.65);padding:48px 24px 24px;}
+    .footer-inner{max-width:1280px;margin:auto;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+    .footer-brand .brand-name{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;font-weight:900;}
+    .footer-brand .brand-sub{font-size:.75rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-top:3px;}
+    .footer-brand p{font-size:.83rem;line-height:1.7;margin-top:14px;}
+    .footer-col h4{color:#fff;font-size:.88rem;font-weight:700;margin-bottom:14px;letter-spacing:.04em;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .footer-col ul li a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:.2s;}
+    .footer-col ul li a:hover{color:var(--gold-light);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:10px;}
+    .footer-bottom p{font-size:.78rem;}
+    .footer-bottom a{color:var(--gold);text-decoration:none;}
 
-const hamBtn=document.getElementById('hamBtn');
-const mobMenu=document.getElementById('mobMenu');
-hamBtn.addEventListener('click',()=>{
-  hamBtn.classList.toggle('open');
-  mobMenu.classList.toggle('open');
-});
-function closeMob(){hamBtn.classList.remove('open');mobMenu.classList.remove('open');}
+    /* ── PRODUCT MODAL ── */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;align-items:center;justify-content:center;padding:20px;}
+    .modal-overlay.open{display:flex;}
+    .modal{background:#fff;border-radius:18px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+    .modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--gray);z-index:10;}
+    .modal img{width:100%;height:320px;object-fit:cover;border-radius:18px 18px 0 0;}
+    .modal-body{padding:24px;}
+    .modal-body h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--teak-dark);margin-bottom:6px;}
+    .modal-body .modal-price{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--teak);font-weight:700;margin-bottom:14px;}
+    .modal-body p{color:var(--gray);font-size:.9rem;line-height:1.7;margin-bottom:18px;}
+    .modal-actions{display:flex;gap:12px;flex-wrap:wrap;}
+    .modal-actions .btn-primary,.modal-actions .btn-outline{flex:1;justify-content:center;}
+    .modal-actions .btn-outline{color:var(--teak);border-color:var(--teak);}
 
-document.getElementById('logoInput').addEventListener('change',function(){
-  if(this.files&&this.files[0]){
-    const url=URL.createObjectURL(this.files[0]);
-    document.getElementById('logoImg').src=url;
-    document.getElementById('footerLogo').src=url;
-  }
-});
+    /* ── CART DRAWER ── */
+    .cart-drawer{position:fixed;right:-380px;top:0;width:370px;max-width:95vw;height:100vh;background:#fff;z-index:9998;box-shadow:-8px 0 40px rgba(0,0,0,.2);transition:.35s ease;display:flex;flex-direction:column;}
+    .cart-drawer.open{right:0;}
+    .cart-header{background:var(--teak-dark);color:#fff;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;}
+    .cart-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;}
+    .cart-close-btn{background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;}
+    .cart-items{flex:1;overflow-y:auto;padding:16px;}
+    .cart-empty{text-align:center;padding:40px 20px;color:var(--gray);}
+    .cart-empty .icon{font-size:3rem;margin-bottom:12px;}
+    .cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--light-gray);}
+    .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+    .cart-item-info{flex:1;}
+    .cart-item-info .ci-name{font-weight:600;font-size:.88rem;color:var(--teak-dark);}
+    .cart-item-info .ci-price{color:var(--teak);font-weight:700;font-size:.9rem;margin-top:3px;}
+    .cart-item-remove{background:none;border:none;color:#ccc;cursor:pointer;font-size:1.1rem;align-self:flex-start;padding:2px 6px;}
+    .cart-item-remove:hover{color:red;}
+    .cart-footer{padding:16px;border-top:2px solid var(--light-gray);}
+    .cart-total{display:flex;justify-content:space-between;font-size:1.05rem;font-weight:700;color:var(--teak-dark);margin-bottom:14px;font-family:'Playfair Display',serif;}
+    .checkout-btn{width:100%;background:var(--teak);color:#fff;padding:13px;border:none;border-radius:9px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Hind Siliguri',sans-serif;}
+    .checkout-btn:hover{background:var(--teak-dark);}
 
-function openLightbox(src,caption){
-  document.getElementById('lbImg').src=src;
-  document.getElementById('lbCaption').textContent=caption;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-function closeLB(e){if(e.target===document.getElementById('lightbox'))closeLightbox();}
+    /* ── TOAST ── */
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--teak-dark);color:#fff;padding:12px 24px;border-radius:10px;font-size:.88rem;font-weight:600;z-index:99999;transition:.3s;opacity:0;pointer-events:none;white-space:nowrap;}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-let curProd='',curPrice='';
-function openModal(name,price){
-  curProd=name; curPrice=price;
-  document.getElementById('modalProd').textContent=name;
-  document.getElementById('modalPrice').textContent=price;
-  document.getElementById('orderModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  document.getElementById('orderModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.getElementById('orderModal').addEventListener('click',function(e){
-  if(e.target===this)closeModal();
-});
-
-function sendOrderMessenger(){
-  const name=document.getElementById('ordName').value.trim();
-  const phone=document.getElementById('ordPhone').value.trim();
-  const addr=document.getElementById('ordAddr').value.trim();
-  const note=document.getElementById('ordNote').value.trim();
-  if(!name||!phone){alert('নাম এবং ফোন নম্বর দিন।');return;}
-  window.open('https://www.facebook.com/share/18Z1pwyez1/','_blank');
-  closeModal();
-}
-
-function msgProduct(name,price){
-  window.open('https://www.facebook.com/share/18Z1pwyez1/','_blank');
-}
-
-function sendToMessenger(){
-  window.open('https://www.facebook.com/share/18Z1pwyez1/','_blank');
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
-  });
-});
-</script>
-</body>
-</html>
+    /* ── BACK TO TOP ── */
+    .back-top{position:fixed;bottom:24px;right:24px;background:var(--teak);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.1re
